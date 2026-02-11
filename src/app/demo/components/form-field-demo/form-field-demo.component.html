@@ -1,7 +1,7 @@
 <main class="page">
   <h1>Form Field</h1>
 
-  <form class="form" (ngSubmit)="submit()">
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
     <app-form-field label="Name" hint="Type your full name" [error]="submitted && !name.value ? 'Name is required' : ''">
       <input class="input" [formControl]="name" placeholder="Jane Doe" />
     </app-form-field>

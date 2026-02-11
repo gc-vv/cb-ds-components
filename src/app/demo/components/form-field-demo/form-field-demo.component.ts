@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { ButtonComponent } from '../../../ui/button/button.component';
 import { FormFieldComponent } from '../../../ui/form-field/form-field.component';
@@ -14,6 +14,9 @@ import { FormFieldComponent } from '../../../ui/form-field/form-field.component'
 })
 export class FormFieldDemoComponent {
   readonly name = new FormControl<string>('', { nonNullable: true });
+  readonly form = new FormGroup({
+    name: this.name
+  });
   submitted = false;
 
   submit(): void {
