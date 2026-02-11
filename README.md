@@ -1,56 +1,31 @@
-# CbAngularApp
+# cb-ds-components
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+Base project for building a company UI component library (Angular), with:
 
-## Development server
+- Local demo pages for manual QA
+- Storybook for component documentation and interactive examples
+- Zeroheight integration (Zeroheight embeds the published Storybook)
 
-To start a local development server, run:
+## Quick start
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Install dependencies:
 
 ```bash
-ng generate component component-name
+npm ci
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Run the demo app:
 
 ```bash
-ng generate --help
+npm run start
 ```
 
-## Building
+## Local demo routes
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Zeroheight
-
-The project includes a `/design-system` route that embeds Zeroheight.
-
-## Component demo routes
-
-Use these routes as embeddable examples in Zeroheight:
+These routes are meant for quickly validating components in an Angular app runtime:
 
 - `/components/button`
 - `/components/form-field`
-
-Configure the URL in:
-
-- `src/environments/environment.ts`
-- `src/environments/environment.production.ts`
 
 ## Storybook
 
@@ -66,36 +41,36 @@ Build the static Storybook site:
 npm run build-storybook
 ```
 
-### Deploy to GitHub Pages
+### Zeroheight integration
+
+Zeroheight is expected to embed the **published Storybook**.
+
+- Configure a Storybook resource in Zeroheight pointing to the Storybook base URL (no `?path=...`).
+- When embedding in pages, prefer linking to a specific component docs page (e.g. `?path=/docs/...`).
+
+## Design system (Zeroheight iframe)
+
+The demo app includes a `/design-system` route that embeds Zeroheight.
+
+Configure the Zeroheight URL in:
+
+- `src/environments/environment.ts`
+- `src/environments/environment.production.ts`
+
+## Deploy Storybook to GitHub Pages
 
 This repo includes a GitHub Actions workflow that builds Storybook and deploys it to GitHub Pages.
 
-Steps to enable:
+Enable it in GitHub:
 
-1. In GitHub: Settings -> Pages
-2. Set **Source** to **GitHub Actions**
-3. Push to `main` (or run the workflow manually)
+1. Settings -> Pages
+2. Source: GitHub Actions
 
-Once deployed, embed the published Storybook URL in Zeroheight (preferably linking directly to a specific component docs page using `?path=/docs/...`).
+Notes:
 
-## Running unit tests
+- The workflow runs on pushes to `main`.
+- If the deploy job is blocked, check Settings -> Environments -> `github-pages` and ensure `main` is allowed to deploy.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Folder structure
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+See `docs/FOLDERS.md` for the rationale behind `src/app/ui`, `src/app/demo`, and `src/app/design-system`.
