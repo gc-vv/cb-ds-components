@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { ButtonComponent } from '../../../ui/button/button.component';
+import { ButtonComponent } from '@cb/ds-components/button';
 
 @Component({
   selector: 'app-button-demo',

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { ButtonComponent } from '../../../ui/button/button.component';
-import { FormFieldComponent } from '../../../ui/form-field/form-field.component';
+import { ButtonComponent } from '@cb/ds-components/button';
+import { FormFieldComponent } from '@cb/ds-components/form-field';
 
 @Component({
   selector: 'app-form-field-demo',

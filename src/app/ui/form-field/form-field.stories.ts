@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 
-import { FormFieldComponent } from './form-field.component';
+import { FormFieldComponent } from '@cb/ds-components/form-field';
 
 const meta: Meta<FormFieldComponent & { placeholder: string }> = {
   title: 'UI/Form Field',

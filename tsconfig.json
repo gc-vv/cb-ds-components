@@ -3,6 +3,24 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@cb/ds-components": [
+        "./projects/ds-components/src/public-api.ts",
+        "./dist/ds-components"
+      ],
+      "@cb/ds-components/button": [
+        "./projects/ds-components/button/src/public-api.ts",
+        "./dist/ds-components/button"
+      ],
+      "@cb/ds-components/form-field": [
+        "./projects/ds-components/form-field/src/public-api.ts",
+        "./dist/ds-components/form-field"
+      ],
+      "@cb/ds-components/*": [
+        "./projects/ds-components/*",
+        "./dist/ds-components/*"
+      ]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -28,6 +46,12 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ds-components/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ds-components/tsconfig.spec.json"
     }
   ]
 }

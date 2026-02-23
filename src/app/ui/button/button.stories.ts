@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 
-import { ButtonComponent } from './button.component';
+import { ButtonComponent } from '@cb/ds-components/button';
 
 const meta: Meta<ButtonComponent & { label: string }> = {
   title: 'UI/Button',

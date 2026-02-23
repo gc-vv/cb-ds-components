@@ -2,7 +2,6 @@ import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
-import {environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +16,6 @@ export class App {
   protected readonly title = signal('cb-angular-app');
 
   protected readonly isHome = signal(true);
-
-  protected readonly zeroheightUrl = environment.zeroheightUrl;
 
   constructor() {
     this.router.events

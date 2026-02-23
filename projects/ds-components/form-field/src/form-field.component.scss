@@ -1,0 +1,24 @@
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field__label {
+  font-size: 0.875rem;
+  color: #111827;
+  font-weight: 600;
+}
+
+.field__control {
+  display: block;
+}
+
+.field__hint {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.field__error {
+  font-size: 0.75rem;
+  color: #dc2626;
+}
