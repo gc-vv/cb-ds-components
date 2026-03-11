@@ -1,0 +1,70 @@
+/* Casas Bahia Design Tokens */
+$cb-yellow: #ffe100;
+$cb-blue: #0046c0;
+$cb-dark: #1a1a1a;
+$cb-gray: #6b6b6b;
+$cb-border: #e0e0e0;
+$cb-white: #ffffff;
+$cb-radius: 8px;
+
+:host {
+  display: block;
+  font-family: inherit;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid $cb-border;
+}
+
+.tab {
+  position: relative;
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: $cb-gray;
+  cursor: pointer;
+  border-radius: 8px 8px 0 0;
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  border-radius: 2px 2px 0 0;
+  transition: background 0.15s;
+}
+
+.tab:hover:not(.tab--disabled):not(.tab--active) {
+  color: $cb-dark;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.tab--active {
+  color: $cb-blue;
+}
+
+.tab--active::after {
+  background: $cb-blue;
+}
+
+.tab--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tab:focus-visible {
+  outline: 2px solid $cb-yellow;
+  outline-offset: -2px;
+}

@@ -1,0 +1,17 @@
+<div class="tabs" role="tablist">
+  @for (tab of tabs(); track trackById($index, tab)) {
+    <button
+      role="tab"
+      type="button"
+      class="tab"
+      [class.tab--active]="isActive(tab)"
+      [class.tab--disabled]="tab.disabled"
+      [attr.aria-selected]="isActive(tab)"
+      [attr.aria-disabled]="tab.disabled ?? false"
+      [disabled]="tab.disabled ?? false"
+      (click)="selectTab(tab)"
+    >
+      {{ tab.label }}
+    </button>
+  }
+</div>
