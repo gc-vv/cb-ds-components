@@ -44,6 +44,10 @@
         "./projects/ds-components/accordion/src/public-api.ts",
         "./dist/ds-components/accordion"
       ],
+      "@cb/ds-components/badge": [
+        "./projects/ds-components/badge/src/public-api.ts",
+        "./dist/ds-components/badge"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
