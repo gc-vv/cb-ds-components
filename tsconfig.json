@@ -68,6 +68,10 @@
         "./projects/ds-components/form-control/src/public-api.ts",
         "./dist/ds-components/form-control"
       ],
+      "@cb/ds-components/input-stepper": [
+        "./projects/ds-components/input-stepper/src/public-api.ts",
+        "./dist/ds-components/input-stepper"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
