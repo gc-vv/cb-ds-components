@@ -1,0 +1,15 @@
+<div class="alert" [class]="'alert alert--' + theme()">
+  <div class="alert__icon" [class]="'alert__icon alert__icon--' + theme()"></div>
+
+  <div class="alert__text">
+    <p class="alert__title">{{ title() }}</p>
+    <p class="alert__description">{{ description() }}</p>
+  </div>
+
+  <button
+    type="button"
+    class="alert__close"
+    (click)="onClickClose()"
+    aria-label="fechar"
+  ></button>
+</div>
