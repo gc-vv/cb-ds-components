@@ -12,6 +12,38 @@
         "./projects/ds-components/button/src/public-api.ts",
         "./dist/ds-components/button"
       ],
+      "@cb/ds-components/alert": [
+        "./projects/ds-components/alert/src/public-api.ts",
+        "./dist/ds-components/alert"
+      ],
+      "@cb/ds-components/tooltip": [
+        "./projects/ds-components/tooltip/src/public-api.ts",
+        "./dist/ds-components/tooltip"
+      ],
+      "@cb/ds-components/checkbox": [
+        "./projects/ds-components/checkbox/src/public-api.ts",
+        "./dist/ds-components/checkbox"
+      ],
+      "@cb/ds-components/input": [
+        "./projects/ds-components/input/src/public-api.ts",
+        "./dist/ds-components/input"
+      ],
+      "@cb/ds-components/tabs": [
+        "./projects/ds-components/tabs/src/public-api.ts",
+        "./dist/ds-components/tabs"
+      ],
+      "@cb/ds-components/combo-box": [
+        "./projects/ds-components/combo-box/src/public-api.ts",
+        "./dist/ds-components/combo-box"
+      ],
+      "@cb/ds-components/tokens": [
+        "./projects/ds-components/tokens/src/public-api.ts",
+        "./dist/ds-components/tokens"
+      ],
+      "@cb/ds-components/accordion": [
+        "./projects/ds-components/accordion/src/public-api.ts",
+        "./dist/ds-components/accordion"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
