@@ -1,0 +1,46 @@
+<div
+  [ngClass]="[
+    'form-control',
+    isInvalid() ? 'form-control--invalid' : '',
+    isDisabled() ? 'form-control--disabled' : '',
+    isReadOnly() ? 'form-control--readonly' : '',
+    className()
+  ]"
+>
+  <!-- Label -->
+  <label
+    *ngIf="label()"
+    [attr.for]="id()"
+    [ngClass]="[
+      'form-control__label',
+      isRequired() && showRequiredIndicator() ? 'form-control__label--required' : ''
+    ]"
+  >
+    {{ label() }}
+    <span *ngIf="isRequired() && showRequiredIndicator()" class="form-control__required-indicator">*</span>
+  </label>
+
+  <!-- Form Field (Input, Select, Textarea, etc.) -->
+  <div class="form-control__field">
+    <ng-content></ng-content>
+  </div>
+
+  <!-- Helper Text -->
+  <div
+    *ngIf="helperText() && !isInvalid()"
+    class="form-control__helper-text"
+    [attr.id]="id() ? 'helper-text-' + id() : null"
+  >
+    {{ helperText() }}
+  </div>
+
+  <!-- Error Message -->
+  <div
+    *ngIf="errorMessage() && isInvalid()"
+    class="form-control__error-message"
+    [attr.id]="id() ? 'error-text-' + id() : null"
+    role="alert"
+  >
+    {{ errorMessage() }}
+  </div>
+</div>

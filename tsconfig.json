@@ -64,6 +64,10 @@
         "./projects/ds-components/pagination/src/public-api.ts",
         "./dist/ds-components/pagination"
       ],
+      "@cb/ds-components/form-control": [
+        "./projects/ds-components/form-control/src/public-api.ts",
+        "./dist/ds-components/form-control"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"

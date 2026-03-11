@@ -1,0 +1,89 @@
+:host {
+  display: block;
+  font-family: var(--ds-font-family-body);
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-75);
+}
+
+// ---------------------------------------------------------------------------
+// LABEL
+// ---------------------------------------------------------------------------
+
+.form-control__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-spacing-25);
+  font-size: var(--ds-font-size-175);
+  font-weight: var(--ds-font-weight-medium);
+  color: var(--ds-text);
+  line-height: var(--ds-line-height-150);
+  cursor: pointer;
+  user-select: none;
+}
+
+.form-control__label--required {
+  color: var(--ds-text);
+}
+
+.form-control__required-indicator {
+  color: var(--ds-error);
+  font-size: var(--ds-font-size-175);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: 1;
+}
+
+// ---------------------------------------------------------------------------
+// FIELD CONTAINER
+// ---------------------------------------------------------------------------
+
+.form-control__field {
+  position: relative;
+}
+
+// ---------------------------------------------------------------------------
+// HELPER TEXT
+// ---------------------------------------------------------------------------
+
+.form-control__helper-text {
+  font-size: var(--ds-font-size-150);
+  color: var(--ds-text-above);
+  line-height: var(--ds-line-height-150);
+}
+
+// ---------------------------------------------------------------------------
+// ERROR MESSAGE
+// ---------------------------------------------------------------------------
+
+.form-control__error-message {
+  font-size: var(--ds-font-size-150);
+  color: var(--ds-error);
+  line-height: var(--ds-line-height-150);
+  font-weight: var(--ds-font-weight-medium);
+}
+
+// ---------------------------------------------------------------------------
+// STATES
+// ---------------------------------------------------------------------------
+
+.form-control--disabled {
+  .form-control__label {
+    opacity: var(--ds-opacity-300);
+    cursor: not-allowed;
+  }
+}
+
+.form-control--readonly {
+  .form-control__label {
+    cursor: default;
+  }
+}
+
+.form-control--invalid {
+  .form-control__label {
+    color: var(--ds-text);
+  }
+}
