@@ -1,0 +1,62 @@
+<div
+  *ngIf="isOpen()"
+  [ngClass]="['drawer-container', className()]"
+>
+  <!-- Overlay -->
+  <div
+    class="drawer__overlay"
+    (click)="handleOverlayClick()"
+  ></div>
+
+  <!-- Drawer Panel -->
+  <div
+    [ngClass]="[
+      'drawer',
+      'drawer--' + placement(),
+      'drawer--' + size()
+    ]"
+    role="dialog"
+    [attr.aria-modal]="true"
+    [attr.aria-labelledby]="'drawer-title'"
+  >
+    <!-- Header -->
+    <div class="drawer__header">
+      <h2 id="drawer-title" class="drawer__title">{{ title() }}</h2>
+
+      <button
+        type="button"
+        class="drawer__close"
+        (click)="close()"
+        [attr.aria-label]="'Close drawer'"
+      >
+        <svg
+          class="drawer__close-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Content -->
+    <div
+      [ngClass]="[
+        'drawer__content',
+        hasContentPadding() ? 'drawer__content--padded' : ''
+      ]"
+    >
+      <ng-content></ng-content>
+    </div>
+
+    <!-- Footer (optional via ng-content) -->
+    <div class="drawer__footer">
+      <ng-content select="[drawerFooter]"></ng-content>
+    </div>
+  </div>
+</div>

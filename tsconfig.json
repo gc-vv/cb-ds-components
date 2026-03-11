@@ -56,6 +56,10 @@
         "./projects/ds-components/divider/src/public-api.ts",
         "./dist/ds-components/divider"
       ],
+      "@cb/ds-components/drawer": [
+        "./projects/ds-components/drawer/src/public-api.ts",
+        "./dist/ds-components/drawer"
+      ],
       "@cb/ds-components/pagination": [
         "./projects/ds-components/pagination/src/public-api.ts",
         "./dist/ds-components/pagination"
