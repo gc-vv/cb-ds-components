@@ -1,0 +1,80 @@
+<nav [attr.aria-label]="'Pagination'" [ngClass]="['pagination', className()]">
+  <ul class="pagination__list">
+    <!-- First Page Button (optional) -->
+    <li *ngIf="showFirstLast()" class="pagination__item">
+      <button
+        type="button"
+        class="pagination__button pagination__button--arrow"
+        [disabled]="activePage() === 1"
+        (click)="goToPage(1)"
+        [attr.aria-label]="'First page'"
+      >
+        <span class="pagination__icon pagination__icon--first">«</span>
+      </button>
+    </li>
+
+    <!-- Previous Button -->
+    <li class="pagination__item">
+      <button
+        type="button"
+        class="pagination__button pagination__button--arrow"
+        [disabled]="activePage() === 1"
+        (click)="goToPrevious()"
+        [attr.aria-label]="'Previous page'"
+      >
+        <span class="pagination__icon pagination__icon--prev">‹</span>
+      </button>
+    </li>
+
+    <!-- Page Numbers with Ellipsis -->
+    <li
+      *ngFor="let page of visiblePages(); trackBy: null"
+      class="pagination__item"
+    >
+      <button
+        *ngIf="!isEllipsis(page); else ellipsisTemplate"
+        type="button"
+        [ngClass]="[
+          'pagination__button',
+          'pagination__button--page',
+          activePage() === page ? 'pagination__button--active' : ''
+        ]"
+        (click)="goToPage(asNumber(page))"
+        [attr.aria-label]="'Page ' + page"
+        [attr.aria-current]="activePage() === page ? 'page' : null"
+      >
+        {{ page }}
+      </button>
+
+      <ng-template #ellipsisTemplate>
+        <span class="pagination__ellipsis" aria-hidden="true">...</span>
+      </ng-template>
+    </li>
+
+    <!-- Next Button -->
+    <li class="pagination__item">
+      <button
+        type="button"
+        class="pagination__button pagination__button--arrow"
+        [disabled]="activePage() === totalPages()"
+        (click)="goToNext()"
+        [attr.aria-label]="'Next page'"
+      >
+        <span class="pagination__icon pagination__icon--next">›</span>
+      </button>
+    </li>
+
+    <!-- Last Page Button (optional) -->
+    <li *ngIf="showFirstLast()" class="pagination__item">
+      <button
+        type="button"
+        class="pagination__button pagination__button--arrow"
+        [disabled]="activePage() === totalPages()"
+        (click)="goToPage(totalPages())"
+        [attr.aria-label]="'Last page'"
+      >
+        <span class="pagination__icon pagination__icon--last">»</span>
+      </button>
+    </li>
+  </ul>
+</nav>
