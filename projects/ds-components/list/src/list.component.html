@@ -1,0 +1,45 @@
+<ul
+  [ngClass]="[
+    'list',
+    dense() ? 'list--dense' : '',
+    showDividers() ? 'list--dividers' : '',
+    className()
+  ]"
+>
+  <li
+    *ngFor="let item of items(); trackBy: trackByFn"
+    [ngClass]="[
+      'list__item',
+      item.selected ? 'list__item--selected' : '',
+      item.disabled ? 'list__item--disabled' : '',
+      selectable() ? 'list__item--selectable' : ''
+    ]"
+    (click)="handleItemClick(item)"
+    [attr.tabindex]="item.disabled ? null : 0"
+    [attr.aria-disabled]="item.disabled ? true : null"
+    [attr.aria-selected]="selectable() && item.selected ? true : null"
+    role="listitem"
+  >
+    <!-- Leading (Avatar or Icon) -->
+    <div *ngIf="item.avatar || item.icon" class="list__item-leading">
+      <img
+        *ngIf="item.avatar"
+        [src]="item.avatar"
+        [alt]="item.primary"
+        class="list__item-avatar"
+      />
+      <span *ngIf="item.icon && !item.avatar" class="list__item-icon">
+        {{ item.icon }}
+      </span>
+    </div>
+
+    <!-- Content -->
+    <div class="list__item-content">
+      <span class="list__item-primary">{{ item.primary }}</span>
+      <span *ngIf="item.secondary" class="list__item-secondary">{{ item.secondary }}</span>
+    </div>
+
+    <!-- Divider -->
+    <div *ngIf="item.divider || showDividers()" class="list__item-divider"></div>
+  </li>
+</ul>
