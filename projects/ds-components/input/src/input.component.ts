@@ -5,15 +5,18 @@ import {
   forwardRef,
   input,
   Output,
-  signal
+  signal,
+  TemplateRef
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 
-import type { InputTheme } from './input.types';
+import type { ElementDirection } from './input.types';
 
 @Component({
-  selector: 'app-input',
+  selector: 'cb-input',
   standalone: true,
+  imports: [NgClass, NgIf, NgTemplateOutlet],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,14 +29,16 @@ import type { InputTheme } from './input.types';
   ]
 })
 export class InputComponent implements ControlValueAccessor {
-  readonly label = input<string>('');
   readonly placeholder = input<string>('');
   readonly disabled = input(false);
-  readonly theme = input<InputTheme>('default');
-  readonly hint = input<string>('');
-  readonly error = input<string>('');
+  readonly isInvalid = input(false);
+  readonly isReadOnly = input(false);
   readonly maxLength = input<number>(0);
   readonly type = input<'text' | 'password' | 'email' | 'number' | 'tel'>('text');
+  readonly element = input<TemplateRef<any> | null>(null);
+  readonly elementDirection = input<ElementDirection>('right');
+  readonly className = input<string>('');
+  readonly id = input<string>('');
 
   protected readonly value = signal('');
 

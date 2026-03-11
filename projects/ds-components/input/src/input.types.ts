@@ -1,1 +1,1 @@
-export type InputTheme = 'default' | 'error' | 'warning' | 'success';
+export type ElementDirection = 'left' | 'right';

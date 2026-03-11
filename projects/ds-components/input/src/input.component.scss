@@ -1,96 +1,81 @@
-/* Casas Bahia Design Tokens */
-$cb-yellow: #ffe100;
-$cb-blue: #0046c0;
-$cb-dark: #1a1a1a;
-$cb-gray: #6b6b6b;
-$cb-border: #c7c7c7;
-$cb-bg: #f5f5f5;
-$cb-white: #ffffff;
-$cb-radius: 8px;
-
 :host {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-family: inherit;
-}
-
-.input-label {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  color: $cb-dark;
-}
-
-.input-label--disabled {
-  opacity: 0.5;
+  display: block;
+  font-family: var(--ds-font-family-body);
 }
 
 .input-wrapper {
   display: flex;
   align-items: center;
-  border: 2px solid $cb-border;
-  border-radius: $cb-radius;
-  background: $cb-white;
-  transition: border-color 0.15s, box-shadow 0.15s;
-  overflow: hidden;
+  gap: var(--ds-spacing-100);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-50);
+  background: var(--ds-bg-main);
+  padding: 0 var(--ds-spacing-150);
+  transition: border-color var(--ds-duration-fast) var(--ds-easing-ease),
+              box-shadow var(--ds-duration-fast) var(--ds-easing-ease);
+  min-height: 40px;
 }
 
 .input-wrapper:focus-within {
-  border-color: $cb-blue;
-  box-shadow: 0 0 0 3px rgba(0, 70, 192, 0.12);
+  border-color: var(--ds-interactive);
+  box-shadow: 0 0 0 2px rgba(0, 51, 198, 0.12);
+}
+
+.input-wrapper--invalid {
+  border-color: var(--ds-error);
+}
+
+.input-wrapper--invalid:focus-within {
+  border-color: var(--ds-error);
+  box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.12);
 }
 
 .input-wrapper--disabled {
-  background: $cb-bg;
+  background: var(--ds-bg-surface-neutral);
+  border-color: var(--ds-border);
+  opacity: var(--ds-opacity-300);
   pointer-events: none;
-  opacity: 0.6;
 }
 
-.input-wrapper--error {
-  border-color: #c0001a;
-}
-
-.input-wrapper--error:focus-within {
-  border-color: #c0001a;
-  box-shadow: 0 0 0 3px rgba(192, 0, 26, 0.12);
-}
-
-.input-wrapper--warning {
-  border-color: #8a5c00;
-}
-
-.input-wrapper--success {
-  border-color: #1a7a3d;
+.input-wrapper--readonly {
+  background: var(--ds-bg-surface-neutral);
+  border-color: var(--ds-border);
 }
 
 .input-field {
   flex: 1;
   width: 100%;
-  padding: 10px 14px;
+  padding: var(--ds-spacing-100) 0;
   border: none;
   outline: none;
   background: transparent;
-  font-size: 14px;
-  line-height: 20px;
-  color: $cb-dark;
+  font-size: var(--ds-font-size-175);
+  line-height: var(--ds-line-height-150);
+  color: var(--ds-text);
   font-family: inherit;
 }
 
 .input-field::placeholder {
-  color: $cb-gray;
+  color: var(--ds-text-above);
 }
 
-.input-message {
-  font-size: 12px;
-  line-height: 18px;
+.input-field:disabled,
+.input-field:read-only {
+  cursor: not-allowed;
 }
 
-.input-message--hint {
-  color: $cb-gray;
+.input-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ds-icon);
+  flex-shrink: 0;
 }
 
-.input-message--error {
-  color: #c0001a;
-  font-weight: 500;
+.input-element--left {
+  order: -1;
+}
+
+.input-element--right {
+  order: 1;
 }
