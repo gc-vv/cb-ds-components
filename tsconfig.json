@@ -52,6 +52,10 @@
         "./projects/ds-components/breadcrumbs/src/public-api.ts",
         "./dist/ds-components/breadcrumbs"
       ],
+      "@cb/ds-components/divider": [
+        "./projects/ds-components/divider/src/public-api.ts",
+        "./dist/ds-components/divider"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
