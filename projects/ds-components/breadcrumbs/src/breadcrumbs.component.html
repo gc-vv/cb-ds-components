@@ -1,0 +1,26 @@
+<nav [attr.aria-label]="'Breadcrumb'" [ngClass]="['breadcrumbs', className()]">
+  <ol class="breadcrumbs__list">
+    <li 
+      *ngFor="let item of items(); let i = index; let last = last"
+      class="breadcrumbs__item"
+    >
+      <a 
+        *ngIf="item.href && !isLast(i); else textOnly"
+        [href]="item.href"
+        class="breadcrumbs__link"
+      >
+        <span *ngIf="i === 0 && useHomeIcon()" class="breadcrumbs__home-icon">🏠</span>
+        <span *ngIf="!useHomeIcon() || i !== 0">{{ item.label }}</span>
+      </a>
+
+      <ng-template #textOnly>
+        <span [ngClass]="['breadcrumbs__text', isLast(i) ? 'breadcrumbs__text--active' : '']">
+          <span *ngIf="i === 0 && useHomeIcon()" class="breadcrumbs__home-icon">🏠</span>
+          <span *ngIf="!useHomeIcon() || i !== 0">{{ item.label }}</span>
+        </span>
+      </ng-template>
+
+      <span *ngIf="!last" class="breadcrumbs__separator" aria-hidden="true">{{ separator() }}</span>
+    </li>
+  </ol>
+</nav>

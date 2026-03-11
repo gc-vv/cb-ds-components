@@ -48,6 +48,10 @@
         "./projects/ds-components/badge/src/public-api.ts",
         "./dist/ds-components/badge"
       ],
+      "@cb/ds-components/breadcrumbs": [
+        "./projects/ds-components/breadcrumbs/src/public-api.ts",
+        "./dist/ds-components/breadcrumbs"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
