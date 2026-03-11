@@ -1,0 +1,166 @@
+// =============================================================================
+// Dynamic Design System — Typography Tokens
+// =============================================================================
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap');
+
+:root {
+  // Legacy semantic aliases (kept for backwards compat)
+  --ds-font-family:   'Nunito', sans-serif;
+  --ds-line-height:   150%;
+  --ds-letter-spacing: 0.02em;
+
+  // Heading size aliases
+  --ds-heading-1-size: 14px;
+  --ds-heading-2-size: 16px;
+  --ds-heading-3-size: 20px;
+  --ds-heading-4-size: 24px;
+  --ds-heading-5-size: 32px;
+
+  // Body size aliases
+  --ds-body-1-size: 12px;
+  --ds-body-2-size: 14px;
+  --ds-body-3-size: 16px;
+  --ds-body-4-size: 20px;
+  --ds-body-5-size: 24px;
+  --ds-body-6-size: 32px;
+
+  // ---------------------------------------------------------------------------
+  // FONT FAMILY
+  // ---------------------------------------------------------------------------
+  --ds-font-family-body:    'Nunito', sans-serif;
+  --ds-font-family-heading: 'Nunito', sans-serif;
+  --ds-font-family-mono:    'Nunito', sans-serif;
+
+  // ---------------------------------------------------------------------------
+  // FONT SIZE SCALE
+  // ---------------------------------------------------------------------------
+  --ds-font-size-125:  10px;
+  --ds-font-size-150:  12px;
+  --ds-font-size-175:  14px;
+  --ds-font-size-200:  16px;
+  --ds-font-size-250:  20px;
+  --ds-font-size-300:  24px;
+  --ds-font-size-400:  32px;
+  --ds-font-size-500:  40px;
+  --ds-font-size-600:  48px;
+  --ds-font-size-700:  56px;
+  --ds-font-size-800:  64px;
+  --ds-font-size-900:  72px;
+  --ds-font-size-1000: 80px;
+
+  // ---------------------------------------------------------------------------
+  // FONT WEIGHT
+  // ---------------------------------------------------------------------------
+  --ds-font-weight-light:   300;
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium:  600;
+  --ds-font-weight-bold:    700;
+  --ds-font-weight-black:   900;
+
+  // ---------------------------------------------------------------------------
+  // LETTER SPACING
+  // ---------------------------------------------------------------------------
+  --ds-letter-spacing-100: normal;
+  --ds-letter-spacing-120: 0.02em;
+
+  // ---------------------------------------------------------------------------
+  // LINE HEIGHT
+  // ---------------------------------------------------------------------------
+  --ds-line-height-100: normal;
+  --ds-line-height-120: 120%;
+  --ds-line-height-140: 140%;
+  --ds-line-height-150: 150%;
+  --ds-line-height-200: 200%;
+
+  // ---------------------------------------------------------------------------
+  // PARAGRAPH SPACING
+  // ---------------------------------------------------------------------------
+  --ds-paragraph-spacing-0:   0px;
+  --ds-paragraph-spacing-100: 8px;
+  --ds-paragraph-spacing-150: 12px;
+  --ds-paragraph-spacing-200: 16px;
+  --ds-paragraph-spacing-300: 24px;
+}
+
+// =============================================================================
+// Typography utility classes
+// =============================================================================
+
+.ds-heading-1 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-heading-1-size);
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-letter-spacing);
+}
+
+.ds-heading-2 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-heading-2-size);
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-letter-spacing);
+}
+
+.ds-heading-3 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-heading-3-size);
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-letter-spacing);
+}
+
+.ds-heading-4 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-heading-4-size);
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-letter-spacing);
+}
+
+.ds-heading-5 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-heading-5-size);
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-letter-spacing);
+}
+
+.ds-subtitle-1 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-heading-1-size);
+  font-weight: 600;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-letter-spacing);
+}
+
+.ds-subtitle-2 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-heading-2-size);
+  font-weight: 600;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-letter-spacing);
+}
+
+.ds-subtitle-3 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-heading-3-size);
+  font-weight: 600;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-letter-spacing);
+}
+
+.ds-subtitle-4 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-heading-4-size);
+  font-weight: 600;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-letter-spacing);
+}
+
+@each $n, $size in (1: var(--ds-body-1-size), 2: var(--ds-body-2-size), 3: var(--ds-body-3-size), 4: var(--ds-body-4-size), 5: var(--ds-body-5-size), 6: var(--ds-body-6-size)) {
+  .ds-body-#{$n}         { font-family: var(--ds-font-family); font-size: #{$size}; font-weight: 400; line-height: var(--ds-line-height); letter-spacing: var(--ds-letter-spacing); }
+  .ds-body-#{$n}-strong  { font-family: var(--ds-font-family); font-size: #{$size}; font-weight: 700; line-height: var(--ds-line-height); letter-spacing: var(--ds-letter-spacing); }
+  .ds-body-#{$n}-stronger{ font-family: var(--ds-font-family); font-size: #{$size}; font-weight: 900; line-height: var(--ds-line-height); letter-spacing: var(--ds-letter-spacing); }
+}
