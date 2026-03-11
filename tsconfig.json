@@ -76,6 +76,10 @@
         "./projects/ds-components/list/src/public-api.ts",
         "./dist/ds-components/list"
       ],
+      "@cb/ds-components/modal": [
+        "./projects/ds-components/modal/src/public-api.ts",
+        "./dist/ds-components/modal"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
