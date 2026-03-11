@@ -1,0 +1,162 @@
+/* Casas Bahia Design Tokens */
+$cb-yellow: #ffe100;
+$cb-blue: #0046c0;
+$cb-dark: #1a1a1a;
+$cb-gray: #6b6b6b;
+$cb-border: #c7c7c7;
+$cb-bg: #f5f5f5;
+$cb-white: #ffffff;
+$cb-radius: 8px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  font-family: inherit;
+}
+
+.combo-label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: $cb-dark;
+}
+
+.combo-label--disabled {
+  opacity: 0.5;
+}
+
+.combo-required {
+  color: #c0001a;
+  margin-left: 2px;
+}
+
+.combo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 2px solid $cb-border;
+  border-radius: $cb-radius;
+  background: $cb-white;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  overflow: hidden;
+}
+
+.combo-wrapper:focus-within,
+.combo-wrapper--open {
+  border-color: $cb-blue;
+  box-shadow: 0 0 0 3px rgba(0, 70, 192, 0.12);
+}
+
+.combo-wrapper--disabled {
+  background: $cb-bg;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.combo-input {
+  flex: 1;
+  padding: 10px 40px 10px 14px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  line-height: 20px;
+  color: $cb-dark;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.combo-input::placeholder {
+  color: $cb-gray;
+}
+
+.combo-chevron {
+  position: absolute;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: $cb-gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.combo-chevron::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-3px);
+  transition: transform 0.2s;
+}
+
+.combo-chevron--open::before {
+  transform: rotate(225deg) translateY(-3px);
+}
+
+.combo-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 200;
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  background: $cb-white;
+  border: 1px solid $cb-border;
+  border-radius: $cb-radius;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.combo-option {
+  padding: 10px 14px;
+  font-size: 14px;
+  line-height: 20px;
+  color: $cb-dark;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.combo-option:hover {
+  background: rgba(0, 70, 192, 0.06);
+}
+
+.combo-option--selected {
+  background: rgba(0, 70, 192, 0.1);
+  color: $cb-blue;
+  font-weight: 600;
+}
+
+.combo-option--selected::after {
+  content: '✓';
+  float: right;
+  color: $cb-blue;
+}
+
+.combo-empty {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 200;
+  padding: 14px;
+  font-size: 14px;
+  color: $cb-gray;
+  background: $cb-white;
+  border: 1px solid $cb-border;
+  border-radius: $cb-radius;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}

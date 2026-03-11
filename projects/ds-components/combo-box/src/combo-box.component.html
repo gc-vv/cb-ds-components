@@ -1,0 +1,59 @@
+@if (label()) {
+  <label class="combo-label" [class.combo-label--disabled]="disabled()">
+    {{ label() }}
+    @if (required()) {
+      <span class="combo-required" aria-hidden="true">*</span>
+    }
+  </label>
+}
+
+<div
+  class="combo-wrapper"
+  [class.combo-wrapper--open]="isOpen()"
+  [class.combo-wrapper--disabled]="disabled()"
+  [class.combo-wrapper--selected]="!!selectedOption()"
+>
+  <input
+    class="combo-input"
+    type="text"
+    [value]="inputValue()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [attr.aria-expanded]="isOpen()"
+    [attr.aria-required]="required()"
+    autocomplete="off"
+    role="combobox"
+    (focus)="openDropdown()"
+    (input)="onInputChange($event)"
+  />
+
+  <button
+    type="button"
+    class="combo-chevron"
+    [class.combo-chevron--open]="isOpen()"
+    tabindex="-1"
+    [disabled]="disabled()"
+    (click)="openDropdown()"
+    aria-hidden="true"
+  ></button>
+</div>
+
+@if (isOpen() && filteredOptions().length > 0) {
+  <ul class="combo-dropdown" role="listbox">
+    @for (option of filteredOptions(); track trackByValue($index, option)) {
+      <li
+        class="combo-option"
+        [class.combo-option--selected]="selectedOption()?.value === option.value"
+        role="option"
+        [attr.aria-selected]="selectedOption()?.value === option.value"
+        (mousedown)="chooseOption(option)"
+      >
+        {{ option.label }}
+      </li>
+    }
+  </ul>
+}
+
+@if (isOpen() && filteredOptions().length === 0) {
+  <div class="combo-empty">Nenhum resultado encontrado</div>
+}
