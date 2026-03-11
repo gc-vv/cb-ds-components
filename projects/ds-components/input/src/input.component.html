@@ -1,0 +1,28 @@
+@if (label()) {
+  <label class="input-label" [class.input-label--disabled]="disabled()">
+    {{ label() }}
+  </label>
+}
+
+<div
+  class="input-wrapper"
+  [class]="'input-wrapper input-wrapper--' + (error() ? 'error' : theme())"
+  [class.input-wrapper--disabled]="disabled()"
+>
+  <input
+    class="input-field"
+    [type]="type()"
+    [value]="value()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [attr.maxlength]="maxLength() > 0 ? maxLength() : null"
+    (input)="handleChange($event)"
+    (blur)="handleBlur()"
+  />
+</div>
+
+@if (error()) {
+  <span class="input-message input-message--error">{{ error() }}</span>
+} @else if (hint()) {
+  <span class="input-message input-message--hint">{{ hint() }}</span>
+}

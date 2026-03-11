@@ -1,0 +1,96 @@
+/* Casas Bahia Design Tokens */
+$cb-yellow: #ffe100;
+$cb-blue: #0046c0;
+$cb-dark: #1a1a1a;
+$cb-gray: #6b6b6b;
+$cb-border: #c7c7c7;
+$cb-bg: #f5f5f5;
+$cb-white: #ffffff;
+$cb-radius: 8px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: inherit;
+}
+
+.input-label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: $cb-dark;
+}
+
+.input-label--disabled {
+  opacity: 0.5;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 2px solid $cb-border;
+  border-radius: $cb-radius;
+  background: $cb-white;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  overflow: hidden;
+}
+
+.input-wrapper:focus-within {
+  border-color: $cb-blue;
+  box-shadow: 0 0 0 3px rgba(0, 70, 192, 0.12);
+}
+
+.input-wrapper--disabled {
+  background: $cb-bg;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.input-wrapper--error {
+  border-color: #c0001a;
+}
+
+.input-wrapper--error:focus-within {
+  border-color: #c0001a;
+  box-shadow: 0 0 0 3px rgba(192, 0, 26, 0.12);
+}
+
+.input-wrapper--warning {
+  border-color: #8a5c00;
+}
+
+.input-wrapper--success {
+  border-color: #1a7a3d;
+}
+
+.input-field {
+  flex: 1;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  line-height: 20px;
+  color: $cb-dark;
+  font-family: inherit;
+}
+
+.input-field::placeholder {
+  color: $cb-gray;
+}
+
+.input-message {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.input-message--hint {
+  color: $cb-gray;
+}
+
+.input-message--error {
+  color: #c0001a;
+  font-weight: 500;
+}
