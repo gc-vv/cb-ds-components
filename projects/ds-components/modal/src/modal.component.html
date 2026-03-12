@@ -1,5 +1,6 @@
 <div
-  *ngIf="isOpen()"
+  #overlay
+  [class.modal-overlay--visible]="isOpen()"
   class="modal-overlay"
   (click)="handleOverlayClick($event)"
   role="dialog"
@@ -8,11 +9,7 @@
   [attr.aria-describedby]="description() ? 'modal-description' : null"
 >
   <div
-    [ngClass]="[
-      'modal',
-      'modal--' + size(),
-      className()
-    ]"
+    [ngClass]="['modal', 'modal--' + size(), className()]"
   >
     <div class="modal__header">
       <h2 *ngIf="title()" id="modal-title" class="modal__title">
@@ -43,7 +40,7 @@
     </div>
 
     <div class="modal__content">
-      <p *ngIf="description()" id="modal-description" class="modal__description">
+      <p *ngIf="description()" id="modal-description" class="modal__description" [class.modal__description--hidden]="!description()">
         {{ description() }}
       </p>
 
