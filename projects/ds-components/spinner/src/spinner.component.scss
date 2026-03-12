@@ -5,7 +5,7 @@
 .cb-spinner {
   display: inline-block;
   border-style: solid;
-  border-color: var(--ds-border, #CCCCCC);
+  border-color: transparent;
   border-top-color: var(--ds-interactive, #0033C6);
   border-radius: 50%;
   animation: cb-spin linear infinite;
