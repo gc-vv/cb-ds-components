@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: var(--ds-z-index-modal);
+  z-index: 9999;
   padding: var(--ds-spacing-200);
   animation: fadeIn var(--ds-duration-normal) var(--ds-easing-ease);
 }
