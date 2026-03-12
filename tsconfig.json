@@ -84,6 +84,10 @@
         "./projects/ds-components/select/src/public-api.ts",
         "./dist/ds-components/select"
       ],
+      "@cb/ds-components/progress-bar": [
+        "./projects/ds-components/progress-bar/src/public-api.ts",
+        "./dist/ds-components/progress-bar"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
