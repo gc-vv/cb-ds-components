@@ -1,34 +1,31 @@
 import {
-  AfterContentInit,
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ContentChildren,
   ElementRef,
-  HostBinding,
   HostListener,
   inject,
   input,
   OnDestroy,
   output,
-  QueryList,
+  Renderer2,
   signal,
   ViewChild
 } from '@angular/core';
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 
-import { CarouselSlideComponent } from './carousel-slide/carousel-slide.component';
 import type { CarouselState, ControlsPosition, SsrBreakpoint } from './carousel.types';
 
 @Component({
   selector: 'cb-carousel',
   standalone: true,
-  imports: [NgClass, NgIf],
+  imports: [NgClass, NgFor, NgIf],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CarouselComponent implements AfterContentInit, OnDestroy {
+export class CarouselComponent implements AfterViewInit, OnDestroy {
   readonly withControls = input<boolean>(true);
   readonly withIndicators = input<boolean>(false);
   readonly withGutter = input<boolean>(false);
@@ -49,13 +46,7 @@ export class CarouselComponent implements AfterContentInit, OnDestroy {
   readonly onClickIndicators = output<number>();
   readonly onClickAutoPlay = output<boolean>();
 
-  @ContentChildren(CarouselSlideComponent)
-  protected slides!: QueryList<CarouselSlideComponent>;
-
   @ViewChild('track') private trackRef!: ElementRef<HTMLElement>;
-
-  @HostBinding('style.--cb-slides-per-page')
-  get slidesPerPageVar(): string { return String(this.slidesToScroll()); }
 
   protected readonly currentIndex = signal(0);
   protected readonly isPlaying = signal(false);
@@ -65,16 +56,35 @@ export class CarouselComponent implements AfterContentInit, OnDestroy {
   private dragStartX = 0;
   private isDragging = false;
   private cdr = inject(ChangeDetectorRef);
+  private renderer = inject(Renderer2);
 
-  ngAfterContentInit(): void {
-    this.totalSlides = this.slides.length;
-    this.slides.changes.subscribe(() => {
-      this.totalSlides = this.slides.length;
-      this.cdr.markForCheck();
-    });
+  ngAfterViewInit(): void {
+    this.initSlides();
     if (this.autoPlay()) {
       this.startAutoPlay();
     }
+  }
+
+  private initSlides(): void {
+    if (!this.trackRef) return;
+    const slideEls = this.trackRef.nativeElement.querySelectorAll('cb-carousel-slide');
+    this.totalSlides = slideEls.length;
+    const perPage = this.slidesToScroll();
+    const width = `${100 / perPage}%`;
+    slideEls.forEach(el => {
+      this.renderer.setStyle(el, 'min-width', width);
+      this.renderer.setStyle(el, 'max-width', width);
+      this.renderer.setStyle(el, 'flex-shrink', '0');
+    });
+    if (this.withGutter()) {
+      const gap = 12;
+      const adjustedWidth = `calc(${width} - ${gap * (perPage - 1) / perPage}px)`;
+      slideEls.forEach(el => {
+        this.renderer.setStyle(el, 'min-width', adjustedWidth);
+        this.renderer.setStyle(el, 'max-width', adjustedWidth);
+      });
+    }
+    this.cdr.markForCheck();
   }
 
   ngOnDestroy(): void {

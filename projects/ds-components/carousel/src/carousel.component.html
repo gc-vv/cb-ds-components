@@ -8,7 +8,8 @@
     className()
   ]"
 >
-  <div class="carousel__viewport"
+  <!-- Stage: clips the sliding track, controls overlay on top -->
+  <div class="carousel__stage"
     (mousedown)="onMouseDown($event)"
     (touchstart)="onTouchStart($event)"
     (touchend)="onTouchEnd($event)"
@@ -16,38 +17,37 @@
     <div class="carousel__track" #track [style.transform]="'translateX(-' + currentIndex() * 100 + '%)'">
       <ng-content></ng-content>
     </div>
-  </div>
 
-  <!-- Controls -->
-  <ng-container *ngIf="withControls()">
-    <button
-      *ngIf="showPrev"
-      type="button"
-      class="carousel__control carousel__control--prev"
-      (click)="prev()"
-      aria-label="Slide anterior"
-    >
-      <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8.5 1L1.5 8L8.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
+    <!-- Controls overlaid on the stage -->
+    <ng-container *ngIf="withControls()">
+      <button
+        *ngIf="showPrev"
+        type="button"
+        class="carousel__control carousel__control--prev"
+        (click)="prev()"
+        aria-label="Slide anterior"
+      >
+        <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.5 1L1.5 8L8.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
 
-    <button
-      *ngIf="showNext"
-      type="button"
-      class="carousel__control carousel__control--next"
-      (click)="next()"
-      aria-label="Próximo slide"
-    >
-      <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.5 1L8.5 8L1.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-  </ng-container>
+      <button
+        *ngIf="showNext"
+        type="button"
+        class="carousel__control carousel__control--next"
+        (click)="next()"
+        aria-label="Próximo slide"
+      >
+        <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.5 1L8.5 8L1.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </ng-container>
 
-  <!-- AutoPlay button -->
-  <ng-container *ngIf="autoPlay()">
+    <!-- AutoPlay button -->
     <button
+      *ngIf="autoPlay()"
       type="button"
       class="carousel__autoplay"
       (click)="toggleAutoPlay()"
@@ -61,9 +61,9 @@
         <path d="M2.5 1.5L12.5 7L2.5 12.5V1.5Z" fill="currentColor"/>
       </svg>
     </button>
-  </ng-container>
+  </div>
 
-  <!-- Indicators -->
+  <!-- Indicators below the stage (not clipped) -->
   <div *ngIf="withIndicators()" class="carousel__indicators">
     <button
       *ngFor="let idx of indicatorCount"
