@@ -1,38 +1,48 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
   input,
-  Output,
+  OnInit,
+  output,
   signal
 } from '@angular/core';
+import { NgClass, NgFor } from '@angular/common';
 
-import type { Tab } from './tabs.types';
+import type { Tab, TabChangeEvent, TabSize, TabVariant } from './tabs.types';
 
 @Component({
-  selector: 'app-tabs',
+  selector: 'cb-tabs',
   standalone: true,
+  imports: [NgClass, NgFor],
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TabsComponent {
-  readonly tabs = input.required<Tab[]>();
-  readonly activeId = input<string>('');
+export class TabsComponent implements OnInit {
+  readonly tabs      = input.required<Tab[]>();
+  readonly activeId  = input<string>('');
+  readonly variant   = input<TabVariant>('underline');
+  readonly size      = input<TabSize>('medium');
+  readonly className = input<string>('');
+
+  readonly onTabChange = output<TabChangeEvent>();
 
   protected readonly activeTabId = signal<string>('');
 
-  @Output() readonly tabChange = new EventEmitter<Tab>();
+  ngOnInit(): void {
+    const initial = this.activeId() || this.tabs()[0]?.id || '';
+    this.activeTabId.set(initial);
+  }
 
   protected selectTab(tab: Tab): void {
     if (tab.disabled) return;
+    const previousId = this.activeTabId();
     this.activeTabId.set(tab.id);
-    this.tabChange.emit(tab);
+    this.onTabChange.emit({ previousId, currentTab: tab });
   }
 
   protected isActive(tab: Tab): boolean {
-    const active = this.activeTabId() || this.activeId() || this.tabs()[0]?.id;
-    return tab.id === active;
+    return tab.id === this.activeTabId();
   }
 
   protected trackById(_: number, tab: Tab): string {
