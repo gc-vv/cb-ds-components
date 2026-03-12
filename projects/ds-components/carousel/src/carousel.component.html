@@ -8,17 +8,37 @@
     className()
   ]"
 >
-  <!-- Stage: clips the sliding track, controls overlay on top -->
-  <div class="carousel__stage"
-    (mousedown)="onMouseDown($event)"
-    (touchstart)="onTouchStart($event)"
-    (touchend)="onTouchEnd($event)"
-  >
-    <div class="carousel__track" #track [style.transform]="'translateX(-' + currentIndex() * 100 + '%)'">
-      <ng-content></ng-content>
+  <!-- Stage wrap: position:relative anchor for controls (no overflow clip here) -->
+  <div class="carousel__stage-wrap">
+    <!-- Stage: overflow:hidden, clips the sliding track only -->
+    <div class="carousel__stage"
+      (mousedown)="onMouseDown($event)"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
+    >
+      <div class="carousel__track" #track [style.transform]="'translateX(-' + currentIndex() * 100 + '%)'">
+        <ng-content></ng-content>
+      </div>
+
+      <!-- AutoPlay button (inside stage, overlays the slide) -->
+      <button
+        *ngIf="autoPlay()"
+        type="button"
+        class="carousel__autoplay"
+        (click)="toggleAutoPlay()"
+        [attr.aria-label]="isPlaying() ? 'Pausar' : 'Reproduzir'"
+      >
+        <svg *ngIf="isPlaying()" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/>
+          <rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/>
+        </svg>
+        <svg *ngIf="!isPlaying()" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.5 1.5L12.5 7L2.5 12.5V1.5Z" fill="currentColor"/>
+        </svg>
+      </button>
     </div>
 
-    <!-- Controls overlaid on the stage -->
+    <!-- Controls: outside overflow:hidden, positioned relative to stage-wrap -->
     <ng-container *ngIf="withControls()">
       <button
         *ngIf="showPrev"
@@ -44,23 +64,6 @@
         </svg>
       </button>
     </ng-container>
-
-    <!-- AutoPlay button -->
-    <button
-      *ngIf="autoPlay()"
-      type="button"
-      class="carousel__autoplay"
-      (click)="toggleAutoPlay()"
-      [attr.aria-label]="isPlaying() ? 'Pausar' : 'Reproduzir'"
-    >
-      <svg *ngIf="isPlaying()" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/>
-        <rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/>
-      </svg>
-      <svg *ngIf="!isPlaying()" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2.5 1.5L12.5 7L2.5 12.5V1.5Z" fill="currentColor"/>
-      </svg>
-    </button>
   </div>
 
   <!-- Indicators below the stage (not clipped) -->
