@@ -54,7 +54,7 @@ export const Controlled: Story = {
         openModal: () => isOpen.set(true)
       },
       template: `
-        <cb-button (click)="openModal()">Abrir modal</cb-button>
+        <cb-button variant="primary" (click)="openModal()">Abrir modal</cb-button>
         
         <cb-modal
           [isOpen]="isOpen()"
@@ -66,7 +66,7 @@ export const Controlled: Story = {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           
           <div footer>
-            <cb-button (click)="isOpen.set(false)">Aceitar</cb-button>
+            <cb-button variant="primary" (click)="isOpen.set(false)">Aceitar</cb-button>
           </div>
         </cb-modal>
       `,
@@ -86,7 +86,7 @@ export const SmallSize: Story = {
         openModal: () => isOpen.set(true)
       },
       template: `
-        <cb-button (click)="openModal()">Abrir modal pequeno</cb-button>
+        <cb-button variant="primary" (click)="openModal()">Abrir modal pequeno</cb-button>
         
         <cb-modal
           [isOpen]="isOpen()"
@@ -98,7 +98,7 @@ export const SmallSize: Story = {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           
           <div footer>
-            <cb-button (click)="isOpen.set(false)">Aceitar</cb-button>
+            <cb-button variant="primary" (click)="isOpen.set(false)">Aceitar</cb-button>
           </div>
         </cb-modal>
       `,
@@ -118,7 +118,7 @@ export const MediumSize: Story = {
         openModal: () => isOpen.set(true)
       },
       template: `
-        <cb-button (click)="openModal()">Abrir modal médio</cb-button>
+        <cb-button variant="primary" (click)="openModal()">Abrir modal médio</cb-button>
         
         <cb-modal
           [isOpen]="isOpen()"
@@ -130,7 +130,7 @@ export const MediumSize: Story = {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
           
           <div footer>
-            <cb-button (click)="isOpen.set(false)">Aceitar</cb-button>
+            <cb-button variant="primary" (click)="isOpen.set(false)">Aceitar</cb-button>
           </div>
         </cb-modal>
       `,
@@ -150,7 +150,7 @@ export const LargeSize: Story = {
         openModal: () => isOpen.set(true)
       },
       template: `
-        <cb-button (click)="openModal()">Abrir modal grande</cb-button>
+        <cb-button variant="primary" (click)="openModal()">Abrir modal grande</cb-button>
         
         <cb-modal
           [isOpen]="isOpen()"
@@ -162,7 +162,7 @@ export const LargeSize: Story = {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
           
           <div footer>
-            <cb-button (click)="isOpen.set(false)">Aceitar</cb-button>
+            <cb-button variant="primary" (click)="isOpen.set(false)">Aceitar</cb-button>
           </div>
         </cb-modal>
       `,
@@ -182,7 +182,7 @@ export const FullSize: Story = {
         openModal: () => isOpen.set(true)
       },
       template: `
-        <cb-button (click)="openModal()">Abrir modal em tela cheia</cb-button>
+        <cb-button variant="primary" (click)="openModal()">Abrir modal em tela cheia</cb-button>
         
         <cb-modal
           [isOpen]="isOpen()"
@@ -194,7 +194,7 @@ export const FullSize: Story = {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
           
           <div footer>
-            <cb-button (click)="isOpen.set(false)">Aceitar</cb-button>
+            <cb-button variant="primary" (click)="isOpen.set(false)">Aceitar</cb-button>
           </div>
         </cb-modal>
       `,
@@ -214,7 +214,7 @@ export const WithScroll: Story = {
         openModal: () => isOpen.set(true)
       },
       template: `
-        <cb-button (click)="openModal()">Abrir modal</cb-button>
+        <cb-button variant="primary" (click)="openModal()">Abrir modal</cb-button>
         
         <cb-modal
           [isOpen]="isOpen()"
@@ -229,7 +229,7 @@ export const WithScroll: Story = {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
           
           <div footer>
-            <cb-button (click)="isOpen.set(false)">Aceitar</cb-button>
+            <cb-button variant="primary" (click)="isOpen.set(false)">Aceitar</cb-button>
           </div>
         </cb-modal>
       `,
