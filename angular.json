@@ -84,6 +84,7 @@
           "options": {
             "configDir": ".storybook",
             "browserTarget": "cb-angular-app:build",
+            "styles": ["src/styles.scss"],
             "compodoc": true,
             "compodocArgs": [
               "-e",
@@ -99,6 +100,7 @@
           "options": {
             "configDir": ".storybook",
             "browserTarget": "cb-angular-app:build",
+            "styles": ["src/styles.scss"],
             "compodoc": true,
             "compodocArgs": [
               "-e",
