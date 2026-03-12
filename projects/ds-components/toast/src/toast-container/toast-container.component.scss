@@ -1,0 +1,55 @@
+.toast-container {
+  position: fixed;
+  z-index: var(--ds-z-modal, 1400);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-150, 12px);
+  pointer-events: none;
+
+  > * { pointer-events: all; }
+}
+
+// ---------------------------------------------------------------------------
+// POSITIONS
+// ---------------------------------------------------------------------------
+
+.toast-container--top-right {
+  top: var(--ds-spacing-200, 16px);
+  right: var(--ds-spacing-200, 16px);
+  align-items: flex-end;
+}
+
+.toast-container--top-left {
+  top: var(--ds-spacing-200, 16px);
+  left: var(--ds-spacing-200, 16px);
+  align-items: flex-start;
+}
+
+.toast-container--top-center {
+  top: var(--ds-spacing-200, 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+}
+
+.toast-container--bottom-right {
+  bottom: var(--ds-spacing-200, 16px);
+  right: var(--ds-spacing-200, 16px);
+  align-items: flex-end;
+  flex-direction: column-reverse;
+}
+
+.toast-container--bottom-left {
+  bottom: var(--ds-spacing-200, 16px);
+  left: var(--ds-spacing-200, 16px);
+  align-items: flex-start;
+  flex-direction: column-reverse;
+}
+
+.toast-container--bottom-center {
+  bottom: var(--ds-spacing-200, 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  flex-direction: column-reverse;
+}

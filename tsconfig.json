@@ -112,6 +112,10 @@
         "./projects/ds-components/timeline/src/public-api.ts",
         "./dist/ds-components/timeline"
       ],
+      "@cb/ds-components/toast": [
+        "./projects/ds-components/toast/src/public-api.ts",
+        "./dist/ds-components/toast"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
