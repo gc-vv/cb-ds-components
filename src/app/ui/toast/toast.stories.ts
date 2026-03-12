@@ -27,6 +27,7 @@ interface ToastArgs {
 
 const meta: Meta<ToastArgs> = {
   title: 'UI/Toast',
+  component: ToastItemComponent,
   tags: ['autodocs'],
   parameters: {
     docs: {
