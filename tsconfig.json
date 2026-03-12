@@ -116,6 +116,10 @@
         "./projects/ds-components/toast/src/public-api.ts",
         "./dist/ds-components/toast"
       ],
+      "@cb/ds-components/toggle": [
+        "./projects/ds-components/toggle/src/public-api.ts",
+        "./dist/ds-components/toggle"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"

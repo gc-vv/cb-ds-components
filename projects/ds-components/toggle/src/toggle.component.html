@@ -1,0 +1,27 @@
+<label
+  class="toggle"
+  [class.toggle--sm]="size() === 'sm'"
+  [class.toggle--md]="size() === 'md'"
+  [class.toggle--disabled]="disabled()"
+  [class.toggle--label-left]="labelPosition() === 'left'"
+  [class]="className()"
+>
+  @if (label() && labelPosition() === 'left') {
+    <span class="toggle__label">{{ label() }}</span>
+  }
+
+  <span class="toggle__track" [class.toggle__track--on]="checked()" (click)="toggle()">
+    <input
+      type="checkbox"
+      class="toggle__input"
+      [checked]="checked()"
+      [disabled]="disabled()"
+      (change)="toggle()"
+    />
+    <span class="toggle__thumb" aria-hidden="true"></span>
+  </span>
+
+  @if (label() && labelPosition() === 'right') {
+    <span class="toggle__label">{{ label() }}</span>
+  }
+</label>
