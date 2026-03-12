@@ -1,0 +1,13 @@
+@keyframes cb-spin {
+  to { transform: rotate(360deg); }
+}
+
+.cb-spinner {
+  display: inline-block;
+  border-style: solid;
+  border-color: var(--ds-border, #CCCCCC);
+  border-top-color: var(--ds-interactive, #0033C6);
+  border-radius: 50%;
+  animation: cb-spin linear infinite;
+  flex-shrink: 0;
+}

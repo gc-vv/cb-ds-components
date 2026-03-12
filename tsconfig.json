@@ -96,6 +96,10 @@
         "./projects/ds-components/carousel/src/public-api.ts",
         "./dist/ds-components/carousel"
       ],
+      "@cb/ds-components/spinner": [
+        "./projects/ds-components/spinner/src/public-api.ts",
+        "./dist/ds-components/spinner"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
