@@ -1,20 +1,21 @@
 :host {
   display: inline-block;
-  font-family: var(--ds-font-family-body);
+  font-family: var(--ds-font-family-body, 'Nunito', sans-serif);
 }
 
 .btn {
   appearance: none;
   border: 1px solid transparent;
-  border-radius: var(--ds-radius-50);
-  padding: var(--ds-spacing-150) var(--ds-spacing-200);
-  font-size: var(--ds-font-size-175);
-  font-weight: var(--ds-font-weight-medium);
-  line-height: var(--ds-line-height-100);
+  border-radius: var(--ds-radius-50, 4px);
+  padding: var(--ds-spacing-150, 12px) var(--ds-spacing-200, 16px);
+  font-family: var(--ds-font-family-body, 'Nunito', sans-serif);
+  font-size: var(--ds-font-size-175, 14px);
+  font-weight: var(--ds-font-weight-medium, 600);
+  line-height: var(--ds-line-height-100, normal);
   cursor: pointer;
-  transition: background-color var(--ds-duration-fast) var(--ds-easing-ease),
-              border-color var(--ds-duration-fast) var(--ds-easing-ease),
-              transform var(--ds-duration-fast) var(--ds-easing-ease);
+  transition: background-color var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease),
+              border-color var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease),
+              transform var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease);
 }
 
 .btn:hover:not(:disabled) {
@@ -31,28 +32,28 @@
 }
 
 .btn--primary {
-  background: var(--ds-interactive);
-  color: var(--ds-text-on-interactive);
+  background: var(--ds-interactive, #0033C6);
+  color: var(--ds-text-on-interactive, #FCFCFC);
 }
 
 .btn--primary:hover:not(:disabled) {
-  background: var(--ds-interactive-hovered);
+  background: var(--ds-interactive-hovered, #0F3889);
 }
 
 .btn--secondary {
-  background: var(--ds-bg-main);
-  color: var(--ds-text);
-  border-color: var(--ds-border);
+  background: var(--ds-bg-main, #FCFCFC);
+  color: var(--ds-text, #696969);
+  border-color: var(--ds-border, #CCCCCC);
 }
 
 .btn--secondary:hover:not(:disabled) {
-  background: var(--ds-bg-surface);
-  border-color: var(--ds-border-hovered);
+  background: var(--ds-bg-surface, #F7F7F7);
+  border-color: var(--ds-border-hovered, #9E9E9E);
 }
 
 .btn--danger {
   background: #CE1735;
-  color: var(--ds-text-on-interactive);
+  color: var(--ds-text-on-interactive, #FCFCFC);
 }
 
 .btn--danger:hover:not(:disabled) {
