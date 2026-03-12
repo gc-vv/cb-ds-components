@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: var(--ds-z-modal);
   padding: var(--ds-spacing-200);
   animation: fadeIn var(--ds-duration-normal) var(--ds-easing-ease);
 }
@@ -29,7 +29,7 @@
 .modal {
   background: var(--ds-bg-main);
   border-radius: var(--ds-radius-100);
-  box-shadow: var(--ds-shadow-300);
+  box-shadow: var(--ds-shadow-level2);
   display: flex;
   flex-direction: column;
   max-height: 90vh;
@@ -73,18 +73,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--ds-spacing-200) var(--ds-spacing-250);
+  padding: var(--ds-spacing-200) var(--ds-spacing-300);
   background: var(--ds-interactive);
-  color: var(--ds-text-inverse);
+  color: var(--ds-text-on-interactive);
   flex-shrink: 0;
 }
 
 .modal__title {
   margin: 0;
   font-size: var(--ds-font-size-200);
-  font-weight: var(--ds-font-weight-semibold);
+  font-weight: var(--ds-font-weight-bold);
   line-height: var(--ds-line-height-150);
-  color: var(--ds-text-inverse);
+  color: var(--ds-text-on-interactive);
   flex: 1;
   padding-right: var(--ds-spacing-150);
 }
@@ -98,7 +98,7 @@
   border: 2px solid currentColor;
   border-radius: var(--ds-radius-50);
   background: transparent;
-  color: var(--ds-text-inverse);
+  color: var(--ds-text-on-interactive);
   cursor: pointer;
   transition: background-color var(--ds-duration-fast) var(--ds-easing-ease),
               transform var(--ds-duration-fast) var(--ds-easing-ease);
@@ -120,7 +120,7 @@
 .modal__content {
   flex: 1;
   overflow-y: auto;
-  padding: var(--ds-spacing-250);
+  padding: var(--ds-spacing-300);
   display: flex;
   flex-direction: column;
   gap: var(--ds-spacing-200);
@@ -128,7 +128,8 @@
 
 .modal__description {
   margin: 0;
-  font-size: var(--ds-font-size-175);
+  font-size: var(--ds-font-size-200);
+  font-weight: var(--ds-font-weight-bold);
   line-height: var(--ds-line-height-150);
   color: var(--ds-text-above);
 }
@@ -140,7 +141,7 @@
 }
 
 .modal__footer {
-  padding: var(--ds-spacing-200) var(--ds-spacing-250);
+  padding: var(--ds-spacing-200) var(--ds-spacing-300);
   border-top: 1px solid var(--ds-border);
   background: var(--ds-bg-main);
   flex-shrink: 0;
