@@ -108,6 +108,10 @@
         "./projects/ds-components/textarea/src/public-api.ts",
         "./dist/ds-components/textarea"
       ],
+      "@cb/ds-components/timeline": [
+        "./projects/ds-components/timeline/src/public-api.ts",
+        "./dist/ds-components/timeline"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"

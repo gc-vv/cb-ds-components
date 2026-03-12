@@ -1,0 +1,38 @@
+<ol
+  [ngClass]="[
+    'timeline',
+    'timeline--' + orientation(),
+    className()
+  ]"
+  aria-label="Timeline"
+>
+  <li
+    *ngFor="let step of steps(); let i = index"
+    [ngClass]="[
+      'timeline__step',
+      'timeline__step--' + step.status
+    ]"
+  >
+    <!-- Connector + Node column -->
+    <div class="timeline__track">
+      <!-- Node (icon) -->
+      <div class="timeline__node" [attr.aria-label]="step.status">
+        <!-- Completed: checkmark -->
+        <svg *ngIf="step.status === 'completed'" class="timeline__icon" width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <!-- Active: filled dot -->
+        <span *ngIf="step.status === 'active'" class="timeline__dot" aria-hidden="true"></span>
+      </div>
+      <!-- Connector line (hidden on last item) -->
+      <div *ngIf="!isLast(i)" class="timeline__connector"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="timeline__content">
+      <span *ngIf="step.date" class="timeline__date">{{ step.date }}</span>
+      <p class="timeline__label">{{ step.label }}</p>
+      <p *ngIf="step.description" class="timeline__description">{{ step.description }}</p>
+    </div>
+  </li>
+</ol>
