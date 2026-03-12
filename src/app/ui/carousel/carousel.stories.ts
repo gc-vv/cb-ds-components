@@ -3,11 +3,13 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { CarouselComponent } from '@cb/ds-components/carousel';
 import { CarouselSlideComponent } from '@cb/ds-components/carousel';
 
+const SLIDE_STYLE = 'width:100%;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px;box-sizing:border-box';
+
 const SLIDES_4 = `
-  <cb-carousel-slide><div style="background:blue;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 1</div></cb-carousel-slide>
-  <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 2</div></cb-carousel-slide>
-  <cb-carousel-slide><div style="background:green;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 3</div></cb-carousel-slide>
-  <cb-carousel-slide><div style="background:black;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 4</div></cb-carousel-slide>
+  <cb-carousel-slide><div style="${SLIDE_STYLE};background:blue">Slide 1</div></cb-carousel-slide>
+  <cb-carousel-slide><div style="${SLIDE_STYLE};background:#8B1A1A">Slide 2</div></cb-carousel-slide>
+  <cb-carousel-slide><div style="${SLIDE_STYLE};background:green">Slide 3</div></cb-carousel-slide>
+  <cb-carousel-slide><div style="${SLIDE_STYLE};background:black">Slide 4</div></cb-carousel-slide>
 `;
 
 const meta: Meta<CarouselComponent> = {
@@ -99,14 +101,16 @@ export const Default: Story = {
   })
 };
 
+const S = SLIDE_STYLE;
+
 export const SideControls: Story = {
   name: 'Controles laterais',
   render: () => ({
     template: `
       <div style="padding: 0 56px">
         <cb-carousel [withControls]="true" controlsPosition="outside">
-          <cb-carousel-slide><div style="background:blue;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 1</div></cb-carousel-slide>
-          <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 2</div></cb-carousel-slide>
+          <cb-carousel-slide><div style="${S};background:blue">Slide 1</div></cb-carousel-slide>
+          <cb-carousel-slide><div style="${S};background:#8B1A1A">Slide 2</div></cb-carousel-slide>
         </cb-carousel>
       </div>
     `,
@@ -119,8 +123,8 @@ export const Indicators: Story = {
   render: () => ({
     template: `
       <cb-carousel [withControls]="true" [withIndicators]="true">
-        <cb-carousel-slide><div style="background:blue;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 1</div></cb-carousel-slide>
-        <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 2</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:blue">Slide 1</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:#8B1A1A">Slide 2</div></cb-carousel-slide>
       </cb-carousel>
     `,
     imports: [CarouselComponent, CarouselSlideComponent]
@@ -132,12 +136,12 @@ export const WithGutter: Story = {
   render: () => ({
     template: `
       <cb-carousel [withGutter]="true" [slidesToScroll]="3">
-        <cb-carousel-slide><div style="background:blue;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 1</div></cb-carousel-slide>
-        <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 2</div></cb-carousel-slide>
-        <cb-carousel-slide><div style="background:blue;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 3</div></cb-carousel-slide>
-        <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 4</div></cb-carousel-slide>
-        <cb-carousel-slide><div style="background:blue;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 5</div></cb-carousel-slide>
-        <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 6</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:blue">Slide 1</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:#8B1A1A">Slide 2</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:blue">Slide 3</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:#8B1A1A">Slide 4</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:blue">Slide 5</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:#8B1A1A">Slide 6</div></cb-carousel-slide>
       </cb-carousel>
     `,
     imports: [CarouselComponent, CarouselSlideComponent]
@@ -149,8 +153,8 @@ export const Loop: Story = {
   render: () => ({
     template: `
       <cb-carousel [loop]="true">
-        <cb-carousel-slide><div style="background:blue;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 1</div></cb-carousel-slide>
-        <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 2</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:blue">Slide 1</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:#8B1A1A">Slide 2</div></cb-carousel-slide>
       </cb-carousel>
     `,
     imports: [CarouselComponent, CarouselSlideComponent]
@@ -162,8 +166,12 @@ export const SlidesPerPage: Story = {
   render: () => ({
     template: `
       <cb-carousel [slidesToScroll]="3" [loop]="true">
-        <cb-carousel-slide><div style="background:blue;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 1</div></cb-carousel-slide>
-        <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 2</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:blue">Slide 1</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:#8B1A1A">Slide 2</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:blue">Slide 3</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:#8B1A1A">Slide 4</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:blue">Slide 5</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:#8B1A1A">Slide 6</div></cb-carousel-slide>
       </cb-carousel>
     `,
     imports: [CarouselComponent, CarouselSlideComponent]
@@ -176,12 +184,12 @@ export const Draggable: Story = {
     template: `
       <div style="display:flex;flex-direction:column;gap:16px">
         <cb-carousel [draggable]="true">
-          <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Clique e arraste 2</div></cb-carousel-slide>
-          <cb-carousel-slide><div style="background:blue;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Clique e arraste 1</div></cb-carousel-slide>
+          <cb-carousel-slide><div style="${S};background:#8B1A1A">Clique e arraste 2</div></cb-carousel-slide>
+          <cb-carousel-slide><div style="${S};background:blue">Clique e arraste 1</div></cb-carousel-slide>
         </cb-carousel>
         <cb-carousel [draggable]="false">
-          <cb-carousel-slide><div style="background:green;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Clique e arraste desabilitado 1</div></cb-carousel-slide>
-          <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Clique e arraste desabilitado 2</div></cb-carousel-slide>
+          <cb-carousel-slide><div style="${S};background:green">Clique e arraste desabilitado 1</div></cb-carousel-slide>
+          <cb-carousel-slide><div style="${S};background:#8B1A1A">Clique e arraste desabilitado 2</div></cb-carousel-slide>
         </cb-carousel>
       </div>
     `,
@@ -194,9 +202,9 @@ export const SidePadding: Story = {
   render: () => ({
     template: `
       <cb-carousel [sidePadding]="true">
-        <cb-carousel-slide><div style="background:blue;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 1</div></cb-carousel-slide>
-        <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 2</div></cb-carousel-slide>
-        <cb-carousel-slide><div style="background:green;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 3</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:blue">Slide 1</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:#8B1A1A">Slide 2</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:green">Slide 3</div></cb-carousel-slide>
       </cb-carousel>
     `,
     imports: [CarouselComponent, CarouselSlideComponent]
@@ -208,8 +216,8 @@ export const AutoPlay: Story = {
   render: () => ({
     template: `
       <cb-carousel [autoPlay]="true" [loop]="true">
-        <cb-carousel-slide><div style="background:blue;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 1</div></cb-carousel-slide>
-        <cb-carousel-slide><div style="background:#8B1A1A;height:300px;display:flex;align-items:flex-start;justify-content:center;color:white;padding:8px">Slide 2</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:blue">Slide 1</div></cb-carousel-slide>
+        <cb-carousel-slide><div style="${S};background:#8B1A1A">Slide 2</div></cb-carousel-slide>
       </cb-carousel>
     `,
     imports: [CarouselComponent, CarouselSlideComponent]
