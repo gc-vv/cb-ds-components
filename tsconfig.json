@@ -92,6 +92,10 @@
         "./projects/ds-components/radio/src/public-api.ts",
         "./dist/ds-components/radio"
       ],
+      "@cb/ds-components/carousel": [
+        "./projects/ds-components/carousel/src/public-api.ts",
+        "./dist/ds-components/carousel"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
