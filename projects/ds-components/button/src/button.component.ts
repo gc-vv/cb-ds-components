@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
-  selector: 'app-button',
+  selector: 'cb-button',
   standalone: true,
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
