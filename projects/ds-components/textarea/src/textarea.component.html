@@ -1,0 +1,45 @@
+<div [ngClass]="['cb-textarea-field', className()]">
+
+  <!-- Label -->
+  <label class="cb-textarea-field__label" [attr.data-disabled]="isDisabled() || null" [attr.data-invalid]="isInvalid() || null">
+    {{ label() }}
+    <span *ngIf="isRequired() && showRequiredIndicator()" class="cb-textarea-field__required" aria-hidden="true"> *</span>
+  </label>
+
+  <!-- Textarea -->
+  <textarea
+    [ngClass]="[
+      'cb-textarea-field__input',
+      isInvalid()  ? 'cb-textarea-field__input--invalid'  : '',
+      isDisabled() ? 'cb-textarea-field__input--disabled' : '',
+      isReadOnly() ? 'cb-textarea-field__input--readonly' : '',
+      resize()     ? 'cb-textarea-field__input--resize'   : ''
+    ]"
+    [placeholder]="placeholder()"
+    [disabled]="isDisabled()"
+    [readOnly]="isReadOnly()"
+    [attr.aria-required]="isRequired() || null"
+    [attr.aria-invalid]="isInvalid() || null"
+    [attr.aria-describedby]="(helperText() || errorMessage()) ? 'cb-ta-desc' : null"
+    [rows]="rows()"
+    [value]="value()"
+    (input)="onInput($any($event.target).value)"
+    (blur)="onBlur()"
+  ></textarea>
+
+  <!-- Error message -->
+  <p *ngIf="isInvalid() && errorMessage()" id="cb-ta-desc" class="cb-textarea-field__error">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="7" cy="7" r="6.25" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M7 4v3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="7" cy="10" r="0.75" fill="currentColor"/>
+    </svg>
+    {{ errorMessage() }}
+  </p>
+
+  <!-- Helper text -->
+  <p *ngIf="!isInvalid() && helperText()" id="cb-ta-desc" class="cb-textarea-field__helper">
+    {{ helperText() }}
+  </p>
+
+</div>

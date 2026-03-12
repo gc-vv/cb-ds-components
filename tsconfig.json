@@ -104,6 +104,10 @@
         "./projects/ds-components/dropzone/src/public-api.ts",
         "./dist/ds-components/dropzone"
       ],
+      "@cb/ds-components/textarea": [
+        "./projects/ds-components/textarea/src/public-api.ts",
+        "./dist/ds-components/textarea"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
