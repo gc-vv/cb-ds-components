@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { moduleMetadata } from '@storybook/angular';
 import type { Meta, StoryObj } from '@storybook/angular';
 
 import {
@@ -202,7 +203,6 @@ export const Todos: Story = {
   selector: 'toast-demo',
   standalone: true,
   imports: [ToastContainerComponent],
-  providers: [ToastService],
   styles: [`
     .demo { padding: 24px; display: flex; flex-direction: column; gap: 16px; max-width: 480px; }
     h4 { margin: 0 0 4px; font-size: 14px; font-weight: 600; color: #333; }
@@ -248,6 +248,9 @@ class ToastDemoComponent {
 
 export const Interativo: Story = {
   name: 'Demo interativa',
+  decorators: [
+    moduleMetadata({ imports: [ToastDemoComponent] })
+  ],
   parameters: {
     controls: { disable: true },
     docs: {
@@ -257,7 +260,6 @@ export const Interativo: Story = {
     }
   },
   render: () => ({
-    template: `<toast-demo></toast-demo>`,
-    imports: [ToastDemoComponent]
+    template: `<toast-demo></toast-demo>`
   })
 };
