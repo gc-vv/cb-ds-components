@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, input, output, signal } from '@angular/core';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 
 import type { PageChangeEvent } from './pagination.types';
@@ -26,14 +26,17 @@ export class PaginationComponent {
 
   private readonly internalPage = signal<number>(1);
 
-  protected readonly activePage = computed(() => {
-    const current = this.currentPage();
-    if (current >= 1 && current <= this.totalPages()) {
-      this.internalPage.set(current);
-      return current;
-    }
-    return this.internalPage();
-  });
+  protected readonly activePage = computed(() => this.internalPage());
+
+  constructor() {
+    effect(() => {
+      const total = this.totalPages();
+      const current = this.currentPage();
+      if (current >= 1 && current <= total) {
+        this.internalPage.set(current);
+      }
+    }, { allowSignalWrites: true });
+  }
 
   protected readonly visiblePages = computed(() => {
     const total = this.totalPages();
