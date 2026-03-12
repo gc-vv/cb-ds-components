@@ -33,6 +33,21 @@
   display: flex;
   transition: transform var(--ds-duration-normal, 200ms) var(--ds-easing-ease, ease);
   will-change: transform;
+
+  > * {
+    min-width: calc(100% / var(--cb-slides-per-page, 1));
+    max-width: calc(100% / var(--cb-slides-per-page, 1));
+    flex-shrink: 0;
+  }
+}
+
+.carousel--gutter .carousel__track {
+  gap: var(--ds-spacing-150, 12px);
+
+  > * {
+    min-width: calc(100% / var(--cb-slides-per-page, 1) - var(--ds-spacing-150, 12px) * (var(--cb-slides-per-page, 1) - 1) / var(--cb-slides-per-page, 1));
+    max-width: calc(100% / var(--cb-slides-per-page, 1) - var(--ds-spacing-150, 12px) * (var(--cb-slides-per-page, 1) - 1) / var(--cb-slides-per-page, 1));
+  }
 }
 
 .carousel--draggable .carousel__viewport {
@@ -41,15 +56,6 @@
   &:active {
     cursor: grabbing;
   }
-}
-
-// ---------------------------------------------------------------------------
-// SLIDES
-// ---------------------------------------------------------------------------
-
-.carousel__slide {
-  flex-shrink: 0;
-  width: 100%;
 }
 
 // ---------------------------------------------------------------------------

@@ -5,6 +5,7 @@ import {
   Component,
   ContentChildren,
   ElementRef,
+  HostBinding,
   HostListener,
   inject,
   input,
@@ -14,7 +15,7 @@ import {
   signal,
   ViewChild
 } from '@angular/core';
-import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 
 import { CarouselSlideComponent } from './carousel-slide/carousel-slide.component';
 import type { CarouselState, ControlsPosition, SsrBreakpoint } from './carousel.types';
@@ -22,7 +23,7 @@ import type { CarouselState, ControlsPosition, SsrBreakpoint } from './carousel.
 @Component({
   selector: 'cb-carousel',
   standalone: true,
-  imports: [NgClass, NgFor, NgIf, NgStyle],
+  imports: [NgClass, NgIf],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -53,6 +54,9 @@ export class CarouselComponent implements AfterContentInit, OnDestroy {
 
   @ViewChild('track') private trackRef!: ElementRef<HTMLElement>;
 
+  @HostBinding('style.--cb-slides-per-page')
+  get slidesPerPageVar(): string { return String(this.slidesToScroll()); }
+
   protected readonly currentIndex = signal(0);
   protected readonly isPlaying = signal(false);
   protected totalSlides = 0;
@@ -75,25 +79,6 @@ export class CarouselComponent implements AfterContentInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.stopAutoPlay();
-  }
-
-  protected get trackStyle(): Record<string, string> {
-    const step = 100 / this.slidesToScroll();
-    return {
-      transform: `translateX(-${this.currentIndex() * step}%)`,
-      gap: this.withGutter() ? 'var(--ds-spacing-150, 12px)' : '0'
-    };
-  }
-
-  protected get slideStyle(): Record<string, string> {
-    const slidesPerPage = this.slidesToScroll();
-    const gutter = this.withGutter() ? `var(--ds-spacing-150, 12px)` : '0px';
-    if (this.sidePadding()) {
-      return { minWidth: `calc(${100 / slidesPerPage}% - 24px)` };
-    }
-    return slidesPerPage > 1
-      ? { minWidth: `calc(${100 / slidesPerPage}% - ${gutter})` }
-      : { minWidth: '100%' };
   }
 
   protected get showPrev(): boolean {

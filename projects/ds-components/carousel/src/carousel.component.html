@@ -13,12 +13,7 @@
     (touchstart)="onTouchStart($event)"
     (touchend)="onTouchEnd($event)"
   >
-    <div class="carousel__track" #track [ngStyle]="trackStyle">
-      <ng-container *ngFor="let slide of slides">
-        <div class="carousel__slide" [ngStyle]="slideStyle">
-          <ng-content select="cb-carousel-slide" *ngIf="false"></ng-content>
-        </div>
-      </ng-container>
+    <div class="carousel__track" #track [style.transform]="'translateX(-' + currentIndex() * 100 + '%)'">
       <ng-content></ng-content>
     </div>
   </div>
