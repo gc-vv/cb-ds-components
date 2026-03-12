@@ -100,6 +100,10 @@
         "./projects/ds-components/spinner/src/public-api.ts",
         "./dist/ds-components/spinner"
       ],
+      "@cb/ds-components/dropzone": [
+        "./projects/ds-components/dropzone/src/public-api.ts",
+        "./dist/ds-components/dropzone"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
