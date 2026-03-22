@@ -58,17 +58,14 @@
 }
 
 .accordion__chevron {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  border-right: 2px solid var(--ds-icon);
-  border-bottom: 2px solid var(--ds-icon);
-  transform: rotate(45deg);
+  display: flex;
+  flex-shrink: 0;
+  color: var(--ds-icon);
   transition: transform var(--ds-duration-normal) var(--ds-easing-ease);
 }
 
 .accordion__item--expanded .accordion__chevron {
-  transform: rotate(-135deg);
+  transform: rotate(180deg);
 }
 
 .accordion__panel {
