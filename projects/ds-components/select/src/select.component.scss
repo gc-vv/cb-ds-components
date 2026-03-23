@@ -77,6 +77,8 @@
 .select-control__chevron {
   position: absolute;
   right: var(--ds-spacing-150, 12px);
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
