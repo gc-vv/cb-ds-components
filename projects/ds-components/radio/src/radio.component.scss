@@ -1,0 +1,101 @@
+:host {
+  display: inline-block;
+  font-family: var(--ds-font-family-body, 'Nunito', sans-serif);
+}
+
+.radio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-spacing-100, 8px);
+  cursor: pointer;
+  user-select: none;
+  font-family: inherit;
+}
+
+.radio-label--disabled {
+  cursor: not-allowed;
+  opacity: var(--ds-opacity-300, 0.32);
+}
+
+.radio-control {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.radio-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+// ---------------------------------------------------------------------------
+// CIRCLE
+// ---------------------------------------------------------------------------
+
+.radio-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--ds-border, #CCCCCC);
+  background: var(--ds-bg-main, #FCFCFC);
+  transition: border-color var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease),
+              background var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease);
+}
+
+.radio-circle::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ds-bg-main, #FCFCFC);
+  transform: scale(0);
+  transition: transform var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease);
+}
+
+// ---------------------------------------------------------------------------
+// HOVER
+// ---------------------------------------------------------------------------
+
+.radio-label:not(.radio-label--disabled):hover .radio-circle {
+  border-color: var(--ds-interactive, #0033C6);
+}
+
+// ---------------------------------------------------------------------------
+// CHECKED
+// ---------------------------------------------------------------------------
+
+.radio-input:checked ~ .radio-circle {
+  background: var(--ds-interactive, #0033C6);
+  border-color: var(--ds-interactive, #0033C6);
+}
+
+.radio-input:checked ~ .radio-circle::after {
+  transform: scale(1);
+}
+
+// ---------------------------------------------------------------------------
+// FOCUS
+// ---------------------------------------------------------------------------
+
+.radio-input:focus-visible ~ .radio-circle {
+  outline: 2px solid var(--ds-interactive, #0033C6);
+  outline-offset: 2px;
+  opacity: 0.5;
+}
+
+// ---------------------------------------------------------------------------
+// LABEL TEXT
+// ---------------------------------------------------------------------------
+
+.radio-text {
+  font-size: var(--ds-font-size-175, 14px);
+  line-height: var(--ds-line-height-150, 150%);
+  color: var(--ds-text, #696969);
+}

@@ -1,0 +1,157 @@
+:host {
+  display: block;
+  font-family: var(--ds-font-family-body, 'Nunito', sans-serif);
+}
+
+.select-control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-75, 6px);
+}
+
+// ---------------------------------------------------------------------------
+// LABEL
+// ---------------------------------------------------------------------------
+
+.select-control__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-spacing-25, 2px);
+  font-size: var(--ds-font-size-175, 14px);
+  font-weight: var(--ds-font-weight-medium, 600);
+  color: var(--ds-text, #696969);
+  line-height: var(--ds-line-height-150, 150%);
+  cursor: pointer;
+  user-select: none;
+}
+
+.select-control__required-indicator {
+  color: var(--ds-error, #CE1735);
+  font-size: var(--ds-font-size-175, 14px);
+  font-weight: var(--ds-font-weight-medium, 600);
+  line-height: 1;
+}
+
+// ---------------------------------------------------------------------------
+// FIELD CONTAINER
+// ---------------------------------------------------------------------------
+
+.select-control__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+// ---------------------------------------------------------------------------
+// SELECT ELEMENT
+// ---------------------------------------------------------------------------
+
+.select-field {
+  width: 100%;
+  appearance: none;
+  border: 1px solid var(--ds-border, #CCCCCC);
+  border-radius: var(--ds-radius-50, 4px);
+  background: var(--ds-bg-main, #FCFCFC);
+  padding: var(--ds-spacing-100, 8px) var(--ds-spacing-500, 40px) var(--ds-spacing-100, 8px) var(--ds-spacing-150, 12px);
+  font-size: var(--ds-font-size-175, 14px);
+  font-family: var(--ds-font-family-body, 'Nunito', sans-serif);
+  font-weight: var(--ds-font-weight-regular, 400);
+  line-height: var(--ds-line-height-150, 150%);
+  color: var(--ds-text, #696969);
+  cursor: pointer;
+  min-height: 40px;
+  transition: border-color var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease),
+              box-shadow var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease);
+  outline: none;
+}
+
+.select-field:focus {
+  border-color: var(--ds-interactive, #0033C6);
+  box-shadow: 0 0 0 2px rgba(0, 51, 198, 0.12);
+}
+
+.select-field:disabled {
+  cursor: not-allowed;
+}
+
+.select-control__chevron {
+  position: absolute;
+  right: var(--ds-spacing-150, 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ds-icon, #696969);
+  pointer-events: none;
+}
+
+// ---------------------------------------------------------------------------
+// HELPER TEXT
+// ---------------------------------------------------------------------------
+
+.select-control__helper-text {
+  font-size: var(--ds-font-size-150, 12px);
+  color: var(--ds-text-above, #595959);
+  line-height: var(--ds-line-height-150, 150%);
+}
+
+// ---------------------------------------------------------------------------
+// ERROR MESSAGE
+// ---------------------------------------------------------------------------
+
+.select-control__error-message {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-spacing-50, 4px);
+  font-size: var(--ds-font-size-150, 12px);
+  color: var(--ds-error, #CE1735);
+  line-height: var(--ds-line-height-150, 150%);
+  font-weight: var(--ds-font-weight-medium, 600);
+}
+
+// ---------------------------------------------------------------------------
+// STATES
+// ---------------------------------------------------------------------------
+
+.select-control--invalid {
+  .select-field {
+    border-color: var(--ds-error, #CE1735);
+
+    &:focus {
+      border-color: var(--ds-error, #CE1735);
+      box-shadow: 0 0 0 2px rgba(206, 23, 53, 0.12);
+    }
+  }
+}
+
+.select-control--disabled {
+  .select-control__label {
+    opacity: var(--ds-opacity-300, 0.32);
+    cursor: not-allowed;
+  }
+
+  .select-field {
+    background: var(--ds-bg-surface-neutral, #F2F2F2);
+    border-color: var(--ds-border, #CCCCCC);
+    opacity: var(--ds-opacity-300, 0.32);
+    pointer-events: none;
+  }
+
+  .select-control__chevron {
+    opacity: var(--ds-opacity-300, 0.32);
+  }
+}
+
+.select-control--readonly {
+  .select-control__label {
+    cursor: default;
+  }
+
+  .select-field {
+    background: var(--ds-bg-surface-neutral, #F2F2F2);
+    border-color: var(--ds-border, #CCCCCC);
+    cursor: default;
+    pointer-events: none;
+  }
+}

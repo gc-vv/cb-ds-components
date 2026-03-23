@@ -1,0 +1,58 @@
+:host {
+  display: block;
+}
+
+.progress-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-spacing-150, 12px);
+  width: 100%;
+}
+
+// ---------------------------------------------------------------------------
+// TRACK
+// ---------------------------------------------------------------------------
+
+.progress-bar {
+  flex: 1;
+  background: var(--ds-bg-surface-neutral, #E5E5E5);
+  border-radius: var(--ds-radius-full, 9999px);
+  overflow: hidden;
+}
+
+.progress-bar--small {
+  height: 4px;
+}
+
+.progress-bar--medium {
+  height: 8px;
+}
+
+.progress-bar--large {
+  height: 12px;
+}
+
+// ---------------------------------------------------------------------------
+// FILL
+// ---------------------------------------------------------------------------
+
+.progress-bar__fill {
+  height: 100%;
+  background: var(--ds-interactive, #0033C6);
+  border-radius: var(--ds-radius-full, 9999px);
+  transition: width var(--ds-duration-normal, 200ms) var(--ds-easing-ease, ease);
+  min-width: 0;
+}
+
+// ---------------------------------------------------------------------------
+// LABEL
+// ---------------------------------------------------------------------------
+
+.progress-bar__label {
+  font-size: var(--ds-font-size-150, 12px);
+  font-weight: var(--ds-font-weight-medium, 600);
+  color: var(--ds-text-above, #595959);
+  line-height: var(--ds-line-height-150, 150%);
+  white-space: nowrap;
+  flex-shrink: 0;
+}

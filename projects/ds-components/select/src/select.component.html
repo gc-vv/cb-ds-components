@@ -1,0 +1,72 @@
+<div
+  [ngClass]="[
+    'select-control',
+    isInvalid() ? 'select-control--invalid' : '',
+    isDisabled() ? 'select-control--disabled' : '',
+    isReadOnly() ? 'select-control--readonly' : '',
+    className()
+  ]"
+>
+  <label
+    *ngIf="label()"
+    [attr.for]="id() || 'cb-select'"
+    [ngClass]="[
+      'select-control__label',
+      isRequired() && showRequiredIndicator() ? 'select-control__label--required' : ''
+    ]"
+  >
+    {{ label() }}
+    <span *ngIf="isRequired() && showRequiredIndicator()" class="select-control__required-indicator">*</span>
+  </label>
+
+  <div class="select-control__field">
+    <select
+      class="select-field"
+      [id]="id() || 'cb-select'"
+      [disabled]="isDisabled()"
+      [attr.aria-required]="isRequired()"
+      [attr.aria-invalid]="isInvalid()"
+      [attr.aria-readonly]="isReadOnly()"
+      (change)="handleChange($event)"
+      (blur)="handleBlur()"
+    >
+      <option *ngIf="placeholder()" value="" disabled [selected]="!value()">{{ placeholder() }}</option>
+      <option
+        *ngFor="let opt of options()"
+        [value]="opt.value"
+        [disabled]="opt.disabled || false"
+        [selected]="opt.value === value()"
+      >
+        {{ opt.label }}
+      </option>
+    </select>
+
+    <span class="select-control__chevron" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </span>
+  </div>
+
+  <div
+    *ngIf="helperText() && !isInvalid()"
+    class="select-control__helper-text"
+    [attr.id]="id() ? 'helper-text-' + id() : null"
+  >
+    {{ helperText() }}
+  </div>
+
+  <div
+    *ngIf="errorMessage() && isInvalid()"
+    class="select-control__error-message"
+    [attr.id]="id() ? 'error-text-' + id() : null"
+    role="alert"
+  >
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M7 4.5V7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="7" cy="9.5" r="0.75" fill="currentColor"/>
+    </svg>
+    {{ errorMessage() }}
+  </div>
+</div>

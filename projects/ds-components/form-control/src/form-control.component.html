@@ -1,0 +1,51 @@
+<div
+  [ngClass]="[
+    'form-control',
+    isInvalid() ? 'form-control--invalid' : '',
+    isDisabled() ? 'form-control--disabled' : '',
+    isReadOnly() ? 'form-control--readonly' : '',
+    className()
+  ]"
+>
+  <!-- Label -->
+  <label
+    *ngIf="label()"
+    [attr.for]="id()"
+    [ngClass]="[
+      'form-control__label',
+      isRequired() && showRequiredIndicator() ? 'form-control__label--required' : ''
+    ]"
+  >
+    {{ label() }}
+    <span *ngIf="isRequired() && showRequiredIndicator()" class="form-control__required-indicator">*</span>
+  </label>
+
+  <!-- Form Field (Input, Select, Textarea, etc.) -->
+  <div class="form-control__field">
+    <ng-content></ng-content>
+  </div>
+
+  <!-- Helper Text -->
+  <div
+    *ngIf="helperText() && !isInvalid()"
+    class="form-control__helper-text"
+    [attr.id]="id() ? 'helper-text-' + id() : null"
+  >
+    {{ helperText() }}
+  </div>
+
+  <!-- Error Message -->
+  <div
+    *ngIf="errorMessage() && isInvalid()"
+    class="form-control__error-message"
+    [attr.id]="id() ? 'error-text-' + id() : null"
+    role="alert"
+  >
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M7 4.5V7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="7" cy="9.5" r="0.75" fill="currentColor"/>
+    </svg>
+    {{ errorMessage() }}
+  </div>
+</div>

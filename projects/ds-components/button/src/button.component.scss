@@ -1,0 +1,105 @@
+:host {
+  display: inline-block;
+  font-family: var(--ds-font-family-body, 'Nunito', sans-serif);
+}
+
+.btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  border-radius: var(--ds-radius-50, 4px);
+  padding: 10px var(--ds-spacing-200, 16px);
+  font-family: var(--ds-font-family-body, 'Nunito', sans-serif);
+  font-size: var(--ds-font-size-175, 14px);
+  font-weight: var(--ds-font-weight-semibold, 700);
+  line-height: var(--ds-line-height-100, 1);
+  cursor: pointer;
+  transition:
+    background-color var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease),
+    border-color     var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease),
+    color            var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease),
+    opacity          var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+// ---------------------------------------------------------------------------
+// PRIMARY — azul sólido
+// ---------------------------------------------------------------------------
+
+.btn--primary {
+  background: var(--ds-interactive, #0033C6);
+  border-color: var(--ds-interactive, #0033C6);
+  color: #FFFFFF;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--ds-interactive-hovered, #0026A0);
+  border-color: var(--ds-interactive-hovered, #0026A0);
+}
+
+.btn--primary:active:not(:disabled) {
+  background: #001D80;
+  border-color: #001D80;
+}
+
+// ---------------------------------------------------------------------------
+// SECONDARY — branco com borda e texto azul
+// ---------------------------------------------------------------------------
+
+.btn--secondary {
+  background: #FFFFFF;
+  border-color: var(--ds-interactive, #0033C6);
+  color: var(--ds-interactive, #0033C6);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: #EEF2FF;
+}
+
+.btn--secondary:active:not(:disabled) {
+  background: #DDE6FF;
+}
+
+// ---------------------------------------------------------------------------
+// TERTIARY — texto + underline (estilo link)
+// ---------------------------------------------------------------------------
+
+.btn--tertiary {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ds-interactive, #0033C6);
+  padding-left: 4px;
+  padding-right: 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.btn--tertiary:hover:not(:disabled) {
+  color: var(--ds-interactive-hovered, #0026A0);
+}
+
+// ---------------------------------------------------------------------------
+// CONVERSION — verde sólido
+// ---------------------------------------------------------------------------
+
+.btn--conversion {
+  background: #2D7A27;
+  border-color: #2D7A27;
+  color: #FFFFFF;
+}
+
+.btn--conversion:hover:not(:disabled) {
+  background: #236020;
+  border-color: #236020;
+}
+
+.btn--conversion:active:not(:disabled) {
+  background: #1A481A;
+  border-color: #1A481A;
+}

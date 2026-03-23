@@ -1,0 +1,15 @@
+<div
+  [ngClass]="[
+    'toast-container',
+    'toast-container--' + position(),
+    className()
+  ]"
+  aria-live="polite"
+  aria-atomic="false"
+>
+  <cb-toast-item
+    *ngFor="let toast of toastService.toasts(); trackBy: trackById"
+    [toast]="toast"
+    (dismiss)="dismiss($event)"
+  ></cb-toast-item>
+</div>

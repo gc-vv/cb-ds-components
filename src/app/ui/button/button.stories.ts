@@ -1,25 +1,43 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 
-import { ButtonComponent } from './button.component';
+import { ButtonComponent } from '@cb/ds-components/button';
 
 const meta: Meta<ButtonComponent & { label: string }> = {
   title: 'UI/Button',
   component: ButtonComponent,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Botões de ação seguindo o Design System Casas Bahia. Disponíveis em 4 variantes: `primary`, `secondary`, `tertiary` e `conversion`.'
+      }
+    }
+  },
   argTypes: {
     variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'danger']
+      description: 'Variante visual do botão.',
+      control: { type: 'radio' },
+      options: ['primary', 'secondary', 'tertiary', 'conversion'],
+      table: {
+        type: { summary: "'primary' | 'secondary' | 'tertiary' | 'conversion'" },
+        defaultValue: { summary: "'primary'" }
+      }
     },
     type: {
-      control: 'select',
-      options: ['button', 'submit', 'reset']
+      description: 'Atributo `type` nativo do `<button>`.',
+      control: { type: 'radio' },
+      options: ['button', 'submit', 'reset'],
+      table: { type: { summary: "'button' | 'submit' | 'reset'" }, defaultValue: { summary: "'button'" } }
     },
     disabled: {
-      control: 'boolean'
+      description: 'Desativa o botão e aplica opacidade reduzida.',
+      control: 'boolean',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } }
     },
     label: {
-      control: 'text'
+      description: 'Texto exibido dentro do botão (via `ng-content`).',
+      control: 'text',
+      table: { type: { summary: 'string' } }
     }
   },
   args: {
@@ -30,40 +48,59 @@ const meta: Meta<ButtonComponent & { label: string }> = {
   },
   render: (args) => ({
     props: args,
-    template:
-      '<app-button [variant]="variant" [type]="type" [disabled]="disabled">{{ label }}</app-button>',
+    template: `<cb-button [variant]="variant" [type]="type" [disabled]="disabled">{{ label }}</cb-button>`,
     imports: [ButtonComponent]
   })
 };
 
 export default meta;
-
 type Story = StoryObj<ButtonComponent & { label: string }>;
 
 export const Primary: Story = {
-  args: {
-    variant: 'primary',
-    label: 'Primary'
-  }
+  name: 'Primary',
+  parameters: { docs: { description: { story: 'Ação principal da tela. Use com moderação — preferencialmente um por view.' } } },
+  args: { variant: 'primary', label: 'Primary' }
 };
 
 export const Secondary: Story = {
-  args: {
-    variant: 'secondary',
-    label: 'Secondary'
-  }
+  name: 'Secondary',
+  parameters: { docs: { description: { story: 'Ação secundária, complementar ao botão primário.' } } },
+  args: { variant: 'secondary', label: 'Secondary' }
 };
 
-export const Danger: Story = {
-  args: {
-    variant: 'danger',
-    label: 'Danger'
-  }
+export const Tertiary: Story = {
+  name: 'Tertiary',
+  parameters: { docs: { description: { story: 'Ação de baixa ênfase. Estilo de link com underline.' } } },
+  args: { variant: 'tertiary', label: 'Tertiary' }
+};
+
+export const Conversion: Story = {
+  name: 'Conversion',
+  parameters: { docs: { description: { story: 'Ação de conversão (ex: comprar, finalizar). Verde Casas Bahia.' } } },
+  args: { variant: 'conversion', label: 'Conversion' }
 };
 
 export const Disabled: Story = {
-  args: {
-    disabled: true,
-    label: 'Disabled'
-  }
+  name: 'Disabled',
+  parameters: { docs: { description: { story: 'Estado desabilitado aplicável a qualquer variante.' } } },
+  args: { variant: 'primary', disabled: true, label: 'Disabled' }
+};
+
+export const TodasVariantes: Story = {
+  name: 'Todas as variantes',
+  parameters: {
+    controls: { disable: true },
+    docs: { description: { story: 'Comparação visual de todas as variantes lado a lado.' } }
+  },
+  render: () => ({
+    template: `
+      <div style="display:flex;align-items:center;gap:16px;padding:24px;flex-wrap:wrap">
+        <cb-button variant="primary">Primary</cb-button>
+        <cb-button variant="secondary">Secondary</cb-button>
+        <cb-button variant="tertiary">Tertiary</cb-button>
+        <cb-button variant="conversion">Conversion</cb-button>
+      </div>
+    `,
+    imports: [ButtonComponent]
+  })
 };

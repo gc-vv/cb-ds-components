@@ -1,0 +1,55 @@
+:host {
+  display: inline-block;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ds-font-family-body);
+  font-weight: var(--ds-font-weight-bold);
+  border-radius: var(--ds-radius-50);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+// ---------------------------------------------------------------------------
+// SIZE VARIANTS
+// ---------------------------------------------------------------------------
+
+.badge--small {
+  padding: var(--ds-spacing-25) var(--ds-spacing-100);
+  font-size: var(--ds-font-size-125);
+  min-height: 18px;
+}
+
+.badge--medium {
+  padding: var(--ds-spacing-50) var(--ds-spacing-150);
+  font-size: var(--ds-font-size-150);
+  min-height: 24px;
+}
+
+.badge--large {
+  padding: var(--ds-spacing-100) var(--ds-spacing-200);
+  font-size: var(--ds-font-size-175);
+  min-height: 32px;
+}
+
+// ---------------------------------------------------------------------------
+// COLOR VARIANTS
+// ---------------------------------------------------------------------------
+
+.badge--primary {
+  background: var(--ds-interactive);
+  color: var(--ds-bg-main);
+}
+
+.badge--discount {
+  background: var(--ds-palm-leaf-700);
+  color: var(--ds-bg-main);
+}
+
+.badge--offer {
+  background: var(--ds-green-apple-600);
+  color: var(--ds-woodsmoke-1000);
+}

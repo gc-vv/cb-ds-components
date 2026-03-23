@@ -1,0 +1,162 @@
+:host {
+  display: block;
+  font-family: var(--ds-font-family-body, 'Nunito', sans-serif);
+}
+
+// ---------------------------------------------------------------------------
+// CONTAINER
+// ---------------------------------------------------------------------------
+
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+// ---------------------------------------------------------------------------
+// STAGE WRAP (position anchor for controls) + STAGE (overflow clip)
+// ---------------------------------------------------------------------------
+
+.carousel__stage-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.carousel__stage {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel--side-padding .carousel__stage {
+  overflow: visible;
+}
+
+// ---------------------------------------------------------------------------
+// TRACK (slides row)
+// ---------------------------------------------------------------------------
+
+.carousel__track {
+  display: flex;
+  transition: transform var(--ds-duration-normal, 200ms) var(--ds-easing-ease, ease);
+  will-change: transform;
+}
+
+.carousel--gutter .carousel__track {
+  gap: var(--ds-spacing-150, 12px);
+}
+
+.carousel--draggable .carousel__stage {
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// CONTROLS (arrows)
+// ---------------------------------------------------------------------------
+
+.carousel__control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--ds-bg-main, #FCFCFC);
+  border: 1px solid var(--ds-border, #CCCCCC);
+  border-radius: var(--ds-radius-50, 4px);
+  color: var(--ds-interactive, #0033C6);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: background var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease),
+              box-shadow var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease);
+
+  &:hover {
+    background: var(--ds-bg-surface, #F7F7F7);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+  }
+}
+
+// inside (default) — buttons overlay the slide content
+.carousel--controls-inside .carousel__control--prev {
+  left: var(--ds-spacing-200, 16px);
+}
+
+.carousel--controls-inside .carousel__control--next {
+  right: var(--ds-spacing-200, 16px);
+}
+
+// outside — buttons sit on the border of the slide (half inside, half outside)
+.carousel--controls-outside .carousel__control--prev {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.carousel--controls-outside .carousel__control--next {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+// ---------------------------------------------------------------------------
+// AUTOPLAY button
+// ---------------------------------------------------------------------------
+
+.carousel__autoplay {
+  position: absolute;
+  bottom: var(--ds-spacing-200, 16px);
+  right: var(--ds-spacing-200, 16px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--ds-bg-main, #FCFCFC);
+  border: 1px solid var(--ds-border, #CCCCCC);
+  border-radius: var(--ds-radius-50, 4px);
+  color: var(--ds-text, #696969);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: background var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease);
+
+  &:hover {
+    background: var(--ds-bg-surface, #F7F7F7);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// INDICATORS (dots)
+// ---------------------------------------------------------------------------
+
+.carousel__indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--ds-spacing-75, 6px);
+  margin-top: var(--ds-spacing-150, 12px);
+}
+
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ds-border, #CCCCCC);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease),
+              transform var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease);
+
+  &:hover {
+    background: var(--ds-interactive, #0033C6);
+  }
+}
+
+.carousel__dot--active {
+  background: var(--ds-interactive, #0033C6);
+  transform: scale(1.2);
+}

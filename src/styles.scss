@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use '../projects/ds-components/tokens/src/index';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-body-2-size);
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-letter-spacing);
+  color: var(--ds-text);
+  background: var(--ds-bg-main);
+  -webkit-font-smoothing: antialiased;
+}

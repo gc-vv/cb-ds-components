@@ -1,0 +1,10 @@
+<span
+  [ngClass]="[
+    'badge',
+    'badge--' + variant(),
+    'badge--' + size(),
+    className()
+  ]"
+>
+  <ng-content />
+</span>

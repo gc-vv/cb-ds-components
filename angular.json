@@ -84,6 +84,7 @@
           "options": {
             "configDir": ".storybook",
             "browserTarget": "cb-angular-app:build",
+            "styles": ["src/styles.scss"],
             "compodoc": true,
             "compodocArgs": [
               "-e",
@@ -99,6 +100,7 @@
           "options": {
             "configDir": ".storybook",
             "browserTarget": "cb-angular-app:build",
+            "styles": ["src/styles.scss"],
             "compodoc": true,
             "compodocArgs": [
               "-e",
@@ -107,6 +109,35 @@
               "."
             ],
             "outputDir": "storybook-static"
+          }
+        }
+      }
+    },
+    "ds-components": {
+      "projectType": "library",
+      "root": "projects/ds-components",
+      "sourceRoot": "projects/ds-components/src",
+      "prefix": "cb",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "options": {
+            "project": "projects/ds-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ds-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ds-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/ds-components/tsconfig.spec.json"
           }
         }
       }

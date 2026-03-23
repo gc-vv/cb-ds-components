@@ -1,0 +1,102 @@
+:host {
+  display: block;
+  font-family: var(--ds-font-family-body);
+}
+
+.input-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius-50);
+  background: var(--ds-bg-main);
+  overflow: hidden;
+  transition: border-color var(--ds-duration-fast) var(--ds-easing-ease);
+}
+
+.input-stepper:focus-within {
+  border-color: var(--ds-interactive);
+  box-shadow: 0 0 0 2px rgba(0, 51, 198, 0.12);
+}
+
+.input-stepper--disabled {
+  opacity: var(--ds-opacity-300);
+  pointer-events: none;
+  background: var(--ds-bg-surface-neutral);
+}
+
+// ---------------------------------------------------------------------------
+// BUTTON
+// ---------------------------------------------------------------------------
+
+.input-stepper__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: var(--ds-icon);
+  cursor: pointer;
+  transition: background-color var(--ds-duration-fast) var(--ds-easing-ease),
+              color var(--ds-duration-fast) var(--ds-easing-ease);
+  flex-shrink: 0;
+
+  &:hover:not(:disabled) {
+    background: var(--ds-bg-surface-neutral);
+    color: var(--ds-interactive);
+  }
+
+  &:active:not(:disabled) {
+    background: var(--ds-bg-surface-neutral-hover);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--ds-opacity-200);
+  }
+
+  svg {
+    pointer-events: none;
+  }
+}
+
+.input-stepper__button--decrement {
+  border-right: 1px solid var(--ds-border);
+}
+
+.input-stepper__button--increment {
+  border-left: 1px solid var(--ds-border);
+}
+
+// ---------------------------------------------------------------------------
+// INPUT FIELD
+// ---------------------------------------------------------------------------
+
+.input-stepper__field {
+  flex: 1;
+  min-width: 60px;
+  padding: var(--ds-spacing-100) var(--ds-spacing-150);
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--ds-font-size-175);
+  line-height: var(--ds-line-height-150);
+  color: var(--ds-text);
+  font-family: inherit;
+  text-align: center;
+  font-weight: var(--ds-font-weight-medium);
+
+  // Remove spinner padrão do input number
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  -moz-appearance: textfield;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

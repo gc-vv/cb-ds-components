@@ -1,0 +1,34 @@
+<div
+  [ngClass]="[
+    'input-wrapper',
+    isInvalid() ? 'input-wrapper--invalid' : '',
+    disabled() ? 'input-wrapper--disabled' : '',
+    isReadOnly() ? 'input-wrapper--readonly' : '',
+    className()
+  ]"
+>
+  <!-- Element Left -->
+  <div *ngIf="element() && elementDirection() === 'left'" class="input-element input-element--left">
+    <ng-container *ngTemplateOutlet="element()!"></ng-container>
+  </div>
+
+  <input
+    class="input-field"
+    [id]="id()"
+    [type]="type()"
+    [value]="value()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [readOnly]="isReadOnly()"
+    [attr.maxlength]="maxLength() > 0 ? maxLength() : null"
+    [attr.aria-invalid]="isInvalid()"
+    [attr.aria-readonly]="isReadOnly()"
+    (input)="handleChange($event)"
+    (blur)="handleBlur()"
+  />
+
+  <!-- Element Right -->
+  <div *ngIf="element() && elementDirection() === 'right'" class="input-element input-element--right">
+    <ng-container *ngTemplateOutlet="element()!"></ng-container>
+  </div>
+</div>

@@ -3,6 +3,136 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@cb/ds-components": [
+        "./projects/ds-components/src/public-api.ts",
+        "./dist/ds-components"
+      ],
+      "@cb/ds-components/button": [
+        "./projects/ds-components/button/src/public-api.ts",
+        "./dist/ds-components/button"
+      ],
+      "@cb/ds-components/alert": [
+        "./projects/ds-components/alert/src/public-api.ts",
+        "./dist/ds-components/alert"
+      ],
+      "@cb/ds-components/tooltip": [
+        "./projects/ds-components/tooltip/src/public-api.ts",
+        "./dist/ds-components/tooltip"
+      ],
+      "@cb/ds-components/checkbox": [
+        "./projects/ds-components/checkbox/src/public-api.ts",
+        "./dist/ds-components/checkbox"
+      ],
+      "@cb/ds-components/input": [
+        "./projects/ds-components/input/src/public-api.ts",
+        "./dist/ds-components/input"
+      ],
+      "@cb/ds-components/tabs": [
+        "./projects/ds-components/tabs/src/public-api.ts",
+        "./dist/ds-components/tabs"
+      ],
+      "@cb/ds-components/combo-box": [
+        "./projects/ds-components/combo-box/src/public-api.ts",
+        "./dist/ds-components/combo-box"
+      ],
+      "@cb/ds-components/tokens": [
+        "./projects/ds-components/tokens/src/public-api.ts",
+        "./dist/ds-components/tokens"
+      ],
+      "@cb/ds-components/accordion": [
+        "./projects/ds-components/accordion/src/public-api.ts",
+        "./dist/ds-components/accordion"
+      ],
+      "@cb/ds-components/badge": [
+        "./projects/ds-components/badge/src/public-api.ts",
+        "./dist/ds-components/badge"
+      ],
+      "@cb/ds-components/breadcrumbs": [
+        "./projects/ds-components/breadcrumbs/src/public-api.ts",
+        "./dist/ds-components/breadcrumbs"
+      ],
+      "@cb/ds-components/divider": [
+        "./projects/ds-components/divider/src/public-api.ts",
+        "./dist/ds-components/divider"
+      ],
+      "@cb/ds-components/drawer": [
+        "./projects/ds-components/drawer/src/public-api.ts",
+        "./dist/ds-components/drawer"
+      ],
+      "@cb/ds-components/pagination": [
+        "./projects/ds-components/pagination/src/public-api.ts",
+        "./dist/ds-components/pagination"
+      ],
+      "@cb/ds-components/form-control": [
+        "./projects/ds-components/form-control/src/public-api.ts",
+        "./dist/ds-components/form-control"
+      ],
+      "@cb/ds-components/input-stepper": [
+        "./projects/ds-components/input-stepper/src/public-api.ts",
+        "./dist/ds-components/input-stepper"
+      ],
+      "@cb/ds-components/list": [
+        "./projects/ds-components/list/src/public-api.ts",
+        "./dist/ds-components/list"
+      ],
+      "@cb/ds-components/modal": [
+        "./projects/ds-components/modal/src/public-api.ts",
+        "./dist/ds-components/modal"
+      ],
+      "@cb/ds-components/select": [
+        "./projects/ds-components/select/src/public-api.ts",
+        "./dist/ds-components/select"
+      ],
+      "@cb/ds-components/progress-bar": [
+        "./projects/ds-components/progress-bar/src/public-api.ts",
+        "./dist/ds-components/progress-bar"
+      ],
+      "@cb/ds-components/radio": [
+        "./projects/ds-components/radio/src/public-api.ts",
+        "./dist/ds-components/radio"
+      ],
+      "@cb/ds-components/carousel": [
+        "./projects/ds-components/carousel/src/public-api.ts",
+        "./dist/ds-components/carousel"
+      ],
+      "@cb/ds-components/spinner": [
+        "./projects/ds-components/spinner/src/public-api.ts",
+        "./dist/ds-components/spinner"
+      ],
+      "@cb/ds-components/dropzone": [
+        "./projects/ds-components/dropzone/src/public-api.ts",
+        "./dist/ds-components/dropzone"
+      ],
+      "@cb/ds-components/textarea": [
+        "./projects/ds-components/textarea/src/public-api.ts",
+        "./dist/ds-components/textarea"
+      ],
+      "@cb/ds-components/timeline": [
+        "./projects/ds-components/timeline/src/public-api.ts",
+        "./dist/ds-components/timeline"
+      ],
+      "@cb/ds-components/toast": [
+        "./projects/ds-components/toast/src/public-api.ts",
+        "./dist/ds-components/toast"
+      ],
+      "@cb/ds-components/toggle": [
+        "./projects/ds-components/toggle/src/public-api.ts",
+        "./dist/ds-components/toggle"
+      ],
+      "@cb/ds-components/date-picker": [
+        "./projects/ds-components/date-picker/src/public-api.ts",
+        "./dist/ds-components/date-picker"
+      ],
+      "@cb/ds-components/form-field": [
+        "./projects/ds-components/form-field/src/public-api.ts",
+        "./dist/ds-components/form-field"
+      ],
+      "@cb/ds-components/*": [
+        "./projects/ds-components/*",
+        "./dist/ds-components/*"
+      ]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -28,6 +158,12 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ds-components/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ds-components/tsconfig.spec.json"
     }
   ]
 }

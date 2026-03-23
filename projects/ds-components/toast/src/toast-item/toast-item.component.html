@@ -1,0 +1,51 @@
+<div [ngClass]="['toast', 'toast--' + toast().variant]" role="alert" aria-live="assertive">
+
+  <!-- Left accent bar -->
+  <span class="toast__accent" aria-hidden="true"></span>
+
+  <!-- Icon -->
+  <span class="toast__icon" aria-hidden="true">
+    <!-- Success -->
+    <svg *ngIf="toast().variant === 'success'" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M6 10.5L8.5 13L14 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <!-- Error -->
+    <svg *ngIf="toast().variant === 'error'" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M7 7L13 13M13 7L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <!-- Warning -->
+    <svg *ngIf="toast().variant === 'warning'" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 2L18.66 17H1.34L10 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M10 8v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="10" cy="14.5" r="0.75" fill="currentColor"/>
+    </svg>
+    <!-- Info -->
+    <svg *ngIf="toast().variant === 'info'" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M10 9v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="10" cy="6.5" r="0.75" fill="currentColor"/>
+    </svg>
+  </span>
+
+  <!-- Body -->
+  <div class="toast__body">
+    <p class="toast__title">{{ toast().title }}</p>
+    <p *ngIf="toast().message" class="toast__message">{{ toast().message }}</p>
+  </div>
+
+  <!-- Close button -->
+  <button
+    *ngIf="toast().dismissible !== false"
+    type="button"
+    class="toast__close"
+    (click)="close()"
+    aria-label="Fechar notificação"
+  >
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+</div>

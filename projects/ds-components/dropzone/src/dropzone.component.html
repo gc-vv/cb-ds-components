@@ -1,0 +1,51 @@
+<div [ngClass]="['dropzone-wrapper', className()]">
+
+  <p *ngIf="title()" class="dropzone-wrapper__title">{{ title() }}</p>
+  <p *ngIf="description()" class="dropzone-wrapper__description">{{ description() }}</p>
+
+  <!-- Drop area -->
+  <div
+    [ngClass]="['dropzone', isDragOver() ? 'dropzone--drag-over' : '']"
+    (click)="openFileDialog()"
+  >
+    <span class="dropzone__label">{{ label() }}</span>
+
+    <input
+      #fileInput
+      type="file"
+      class="dropzone__input"
+      [attr.accept]="accept()"
+      [attr.multiple]="multiple() ? '' : null"
+      (change)="onInputChange($event)"
+    />
+  </div>
+
+  <!-- File list -->
+  <ul *ngIf="files().length" class="dropzone__files">
+    <li *ngFor="let f of files()" class="dropzone__file">
+      <div class="dropzone__file-info">
+        <span class="dropzone__file-name">{{ f.name }}</span>
+        <div class="dropzone__file-right">
+          <span class="dropzone__file-progress">{{ f.progress }}%</span>
+          <button
+            type="button"
+            class="dropzone__file-remove"
+            (click)="removeFile(f.id)"
+            aria-label="Remover arquivo"
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1L11 11M11 1L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="dropzone__progress-track">
+        <div
+          class="dropzone__progress-bar"
+          [style.width.%]="f.progress"
+        ></div>
+      </div>
+    </li>
+  </ul>
+
+</div>

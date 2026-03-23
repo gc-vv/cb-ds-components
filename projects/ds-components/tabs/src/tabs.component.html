@@ -1,0 +1,26 @@
+<div
+  role="tablist"
+  [ngClass]="[
+    'tabs',
+    'tabs--' + variant(),
+    'tabs--' + size(),
+    className()
+  ]"
+>
+  <button
+    *ngFor="let tab of tabs(); trackBy: trackById"
+    role="tab"
+    type="button"
+    [ngClass]="[
+      'tab',
+      isActive(tab) ? 'tab--active' : '',
+      tab.disabled ? 'tab--disabled' : ''
+    ]"
+    [attr.aria-selected]="isActive(tab)"
+    [attr.aria-disabled]="tab.disabled ?? false"
+    [disabled]="tab.disabled ?? false"
+    (click)="selectTab(tab)"
+  >
+    {{ tab.label }}
+  </button>
+</div>

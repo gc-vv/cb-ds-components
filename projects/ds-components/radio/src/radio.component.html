@@ -1,0 +1,20 @@
+<label
+  class="radio-label"
+  [class.radio-label--disabled]="isDisabled()"
+>
+  <span class="radio-control">
+    <input
+      type="radio"
+      class="radio-input"
+      [name]="name()"
+      [value]="value()"
+      [checked]="isSelected"
+      [disabled]="isDisabled()"
+      (change)="handleChange($event)"
+    />
+    <span class="radio-circle" aria-hidden="true"></span>
+  </span>
+  @if (label()) {
+    <span class="radio-text">{{ label() }}</span>
+  }
+</label>

@@ -1,0 +1,121 @@
+:host {
+  display: inline-block;
+}
+
+// ---------------------------------------------------------------------------
+// WRAPPER
+// ---------------------------------------------------------------------------
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-spacing-100, 8px);
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--ds-font-family-body, 'Nunito', sans-serif);
+}
+
+.toggle--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+// ---------------------------------------------------------------------------
+// TRACK
+// ---------------------------------------------------------------------------
+
+.toggle__track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--ds-border, #CCCCCC);
+  transition:
+    background var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease),
+    box-shadow  var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease);
+}
+
+.toggle__track--on {
+  background: var(--ds-interactive, #0033C6);
+}
+
+// ---------------------------------------------------------------------------
+// INPUT (visually hidden, keeps accessibility)
+// ---------------------------------------------------------------------------
+
+.toggle__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+// ---------------------------------------------------------------------------
+// THUMB
+// ---------------------------------------------------------------------------
+
+.toggle__thumb {
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--ds-bg-main, #FCFCFC);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20);
+  transition: left var(--ds-duration-fast, 150ms) var(--ds-easing-ease, ease);
+}
+
+.toggle__track--on .toggle__thumb {
+  left: calc(100% - 21px);
+}
+
+// ---------------------------------------------------------------------------
+// FOCUS RING
+// ---------------------------------------------------------------------------
+
+.toggle__input:focus-visible ~ .toggle__thumb {
+  outline: 2px solid var(--ds-interactive, #0033C6);
+  outline-offset: 2px;
+}
+
+// ---------------------------------------------------------------------------
+// LABEL
+// ---------------------------------------------------------------------------
+
+.toggle__label {
+  font-size: var(--ds-font-size-175, 14px);
+  line-height: var(--ds-line-height-150, 150%);
+  color: var(--ds-text, #696969);
+}
+
+// ---------------------------------------------------------------------------
+// SIZE: SM
+// ---------------------------------------------------------------------------
+
+.toggle--sm {
+  .toggle__track {
+    width: 28px;
+    height: 16px;
+  }
+
+  .toggle__thumb {
+    width: 12px;
+    height: 12px;
+    left: 2px;
+  }
+
+  .toggle__track--on .toggle__thumb {
+    left: calc(100% - 14px);
+  }
+
+  .toggle__label {
+    font-size: var(--ds-font-size-150, 12px);
+  }
+}

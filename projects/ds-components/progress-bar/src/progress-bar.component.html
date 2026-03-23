@@ -1,0 +1,15 @@
+<div
+  [ngClass]="['progress-bar-wrapper', className()]"
+  role="progressbar"
+  [attr.aria-valuenow]="clampedValue()"
+  aria-valuemin="0"
+  aria-valuemax="100"
+>
+  <div [ngClass]="['progress-bar', 'progress-bar--' + size()]">
+    <div class="progress-bar__fill" [ngStyle]="fillStyle()"></div>
+  </div>
+
+  <span *ngIf="showValue()" class="progress-bar__label">
+    {{ clampedValue() }}%
+  </span>
+</div>

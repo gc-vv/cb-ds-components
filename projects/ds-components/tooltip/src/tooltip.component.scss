@@ -1,0 +1,100 @@
+/* Casas Bahia Design Tokens */
+$cb-yellow: #ffe100;
+$cb-blue: #0046c0;
+$cb-dark: #1a1a1a;
+$cb-white: #ffffff;
+$cb-radius: 8px;
+
+:host {
+  display: inline-block;
+}
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Bubble */
+.tooltip-bubble {
+  position: absolute;
+  z-index: 100;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: $cb-radius;
+  background: $cb-dark;
+  color: $cb-white;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  border: 1px solid $cb-yellow;
+}
+
+/* Arrow shared */
+.tooltip-bubble::before {
+  content: '';
+  position: absolute;
+  border: 5px solid transparent;
+}
+
+/* Positions */
+.tooltip-wrapper--top .tooltip-bubble {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip-wrapper--top .tooltip-bubble::before {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: $cb-dark;
+}
+
+.tooltip-wrapper--bottom .tooltip-bubble {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip-wrapper--bottom .tooltip-bubble::before {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-color: $cb-dark;
+}
+
+.tooltip-wrapper--right .tooltip-bubble {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tooltip-wrapper--right .tooltip-bubble::before {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right-color: $cb-dark;
+}
+
+.tooltip-wrapper--left .tooltip-bubble {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tooltip-wrapper--left .tooltip-bubble::before {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left-color: $cb-dark;
+}
+
+/* Show on hover */
+.tooltip-wrapper:hover .tooltip-bubble,
+.tooltip-wrapper:focus-within .tooltip-bubble {
+  opacity: 1;
+}

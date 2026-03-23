@@ -1,0 +1,36 @@
+// =============================================================================
+// Dynamic Design System — Motion Tokens
+// =============================================================================
+
+:root {
+
+  // ---------------------------------------------------------------------------
+  // DURATION
+  // ---------------------------------------------------------------------------
+  --ds-duration-ultra-fast: 50ms;
+  --ds-duration-faster:     100ms;
+  --ds-duration-fast:       150ms;
+  --ds-duration-normal:     200ms;
+  --ds-duration-slow:       300ms;
+  --ds-duration-slower:     400ms;
+  --ds-duration-ultra-slow: 500ms;
+
+
+  // ---------------------------------------------------------------------------
+  // EASING
+  // ---------------------------------------------------------------------------
+  --ds-easing-ease:         cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --ds-easing-ease-in:      cubic-bezier(0.42, 0.0, 1.0,  1.0);
+  --ds-easing-ease-out:     cubic-bezier(0.0,  0.0, 0.58, 1.0);
+  --ds-easing-ease-in-out:  cubic-bezier(0.42, 0.0, 0.58, 1.0);
+
+
+  // ---------------------------------------------------------------------------
+  // TRANSITION PROPERTY SETS
+  // ---------------------------------------------------------------------------
+  --ds-transition-common:     background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  --ds-transition-colors:     background-color, border-color, color, fill, stroke;
+  --ds-transition-dimensions: width, height, max-width, max-height;
+  --ds-transition-position:   left, right, top, bottom;
+  --ds-transition-background: background-color, background-image, background-position;
+}

@@ -1,0 +1,145 @@
+// =============================================================================
+// Dynamic Design System — Foundation Tokens
+// Spacing, Size, Radius, Width, Opacity, Shadow, Z-Index, Grid, Breakpoints
+// =============================================================================
+
+// ---------------------------------------------------------------------------
+// BREAKPOINTS — SCSS variables only (CSS custom props don't work in @media)
+// ---------------------------------------------------------------------------
+$ds-bp-initial:  0px;
+$ds-bp-small:    576px;
+$ds-bp-medium:   768px;
+$ds-bp-large:    992px;
+$ds-bp-xlarge:   1200px;
+$ds-bp-xxlarge:  1400px;
+
+// Convenience mixins
+@mixin ds-bp-small  { @media (min-width: #{$ds-bp-small})   { @content; } }
+@mixin ds-bp-medium { @media (min-width: #{$ds-bp-medium})  { @content; } }
+@mixin ds-bp-large  { @media (min-width: #{$ds-bp-large})   { @content; } }
+@mixin ds-bp-xlarge { @media (min-width: #{$ds-bp-xlarge})  { @content; } }
+@mixin ds-bp-xxlarge{ @media (min-width: #{$ds-bp-xxlarge}) { @content; } }
+
+
+:root {
+
+  // ---------------------------------------------------------------------------
+  // WIDTH
+  // ---------------------------------------------------------------------------
+  --ds-width-0:  0px;
+  --ds-width-10: 1px;
+  --ds-width-25: 2px;
+  --ds-width-50: 4px;
+
+
+  // ---------------------------------------------------------------------------
+  // RADIUS
+  // ---------------------------------------------------------------------------
+  --ds-radius-0:    0px;
+  --ds-radius-50:   4px;
+  --ds-radius-100:  8px;
+  --ds-radius-200:  16px;
+  --ds-radius-300:  24px;
+  --ds-radius-400:  32px;
+  --ds-radius-500:  40px;
+  --ds-radius-full: 99999px;
+
+
+  // ---------------------------------------------------------------------------
+  // SPACING
+  // ---------------------------------------------------------------------------
+  --ds-spacing-0:    0px;
+  --ds-spacing-25:   2px;
+  --ds-spacing-50:   4px;
+  --ds-spacing-100:  8px;
+  --ds-spacing-150:  12px;
+  --ds-spacing-200:  16px;
+  --ds-spacing-300:  24px;
+  --ds-spacing-400:  32px;
+  --ds-spacing-500:  40px;
+  --ds-spacing-600:  48px;
+  --ds-spacing-700:  56px;
+  --ds-spacing-800:  64px;
+  --ds-spacing-900:  72px;
+  --ds-spacing-1000: 80px;
+
+
+  // ---------------------------------------------------------------------------
+  // SIZE
+  // ---------------------------------------------------------------------------
+  --ds-size-0:    0px;
+  --ds-size-25:   2px;
+  --ds-size-50:   4px;
+  --ds-size-100:  8px;
+  --ds-size-150:  12px;
+  --ds-size-200:  16px;
+  --ds-size-300:  24px;
+  --ds-size-400:  32px;
+  --ds-size-500:  40px;
+  --ds-size-600:  48px;
+  --ds-size-700:  56px;
+  --ds-size-800:  64px;
+  --ds-size-900:  72px;
+  --ds-size-1000: 80px;
+  --ds-size-full: 100%;
+
+
+  // ---------------------------------------------------------------------------
+  // OPACITY
+  // ---------------------------------------------------------------------------
+  --ds-opacity-100: 0.08;
+  --ds-opacity-200: 0.16;
+  --ds-opacity-300: 0.32;
+  --ds-opacity-400: 0.56;
+  --ds-opacity-500: 0.8;
+
+
+  // ---------------------------------------------------------------------------
+  // SHADOW
+  // ---------------------------------------------------------------------------
+  --ds-shadow-level1: 0px 4px 8px -4px var(--ds-shadow, rgba(0,0,0,0.12));
+  --ds-shadow-level2: 0px 16px 24px -16px var(--ds-shadow, rgba(0,0,0,0.12));
+  --ds-shadow-level3: 0px -16px 24px -16px var(--ds-shadow, rgba(0,0,0,0.12));
+
+
+  // ---------------------------------------------------------------------------
+  // Z-INDEX
+  // ---------------------------------------------------------------------------
+  --ds-z-hide:           -1;
+  --ds-z-auto:           auto;
+  --ds-z-base:           0;
+  --ds-z-docked:         10;
+  --ds-z-dropdown:       1000;
+  --ds-z-sticky:         1100;
+  --ds-z-banner:         1200;
+  --ds-z-header-overlay: 1250;
+  --ds-z-header:         1260;
+  --ds-z-overlay:        1300;
+  --ds-z-drawer:         1350;
+  --ds-z-modal:          1400;
+  --ds-z-popover:        1500;
+  --ds-z-toast:          1700;
+  --ds-z-tooltip:        1800;
+
+
+  // ---------------------------------------------------------------------------
+  // GRID — Margins and Gutters per breakpoint
+  // ---------------------------------------------------------------------------
+  --ds-grid-margin:  8px;   // initial / small (default)
+  --ds-grid-gutter:  8px;
+}
+
+// Responsive grid overrides
+@include ds-bp-medium {
+  :root {
+    --ds-grid-margin: 16px;
+    --ds-grid-gutter: 16px;
+  }
+}
+
+@include ds-bp-large {
+  :root {
+    --ds-grid-margin: 24px;
+    --ds-grid-gutter: 24px;
+  }
+}

@@ -1,0 +1,15 @@
+<label class="checkbox-label" [class.checkbox-label--disabled]="disabled()">
+  <span class="checkbox-control">
+    <input
+      type="checkbox"
+      class="checkbox-input"
+      [checked]="checked()"
+      [disabled]="disabled()"
+      (change)="handleChange($event)"
+    />
+    <span class="checkbox-box" aria-hidden="true"></span>
+  </span>
+  @if (label()) {
+    <span class="checkbox-text">{{ label() }}</span>
+  }
+</label>

@@ -1,0 +1,294 @@
+// =============================================================================
+// Dynamic Design System — Color Tokens
+// CSS Custom Properties (inject via index.scss in global styles)
+// =============================================================================
+
+:root {
+
+  // ---------------------------------------------------------------------------
+  // BACKGROUND
+  // ---------------------------------------------------------------------------
+  --ds-bg-main: #FCFCFC;
+
+  // Surface
+  --ds-bg-surface: #F7F7F7;
+  --ds-bg-surface-above: #F2F2F2;
+  --ds-bg-surface-hovered: #F5F5F5;
+  --ds-bg-surface-pressed: #F0F0F0;
+  --ds-bg-surface-selected: #EBEBEB;
+
+  // Surface > Selected
+  --ds-bg-surface-selected-default: #F1F5FD;
+  --ds-bg-surface-selected-above: #F6F9FE;
+  --ds-bg-surface-selected-above-hovered: #EDF2FD;
+  --ds-bg-surface-selected-above-pressed: #E8EFFC;
+
+  // Surface > Warning
+  --ds-bg-surface-warning: #FDF9F1;
+  --ds-bg-surface-warning-above: #FEFBF6;
+  --ds-bg-surface-warning-above-hovered: #FDF7ED;
+  --ds-bg-surface-warning-above-pressed: #FCF5E8;
+
+  // Surface > Critical
+  --ds-bg-surface-critical: #FDF1F3;
+  --ds-bg-surface-critical-above: #FEF6F7;
+  --ds-bg-surface-critical-above-hovered: #FDEDF0;
+  --ds-bg-surface-critical-above-pressed: #FCE8EB;
+
+  // Surface > Success
+  --ds-bg-surface-success: #F4FBF4;
+  --ds-bg-surface-success-above: #F8FCF8;
+  --ds-bg-surface-success-above-hovered: #F0F9F0;
+  --ds-bg-surface-success-above-pressed: #ECF8EC;
+
+  // Surface > Information
+  --ds-bg-surface-info: #F1F7FD;
+  --ds-bg-surface-info-above: #F6FAFE;
+  --ds-bg-surface-info-above-hovered: #EDF5FD;
+  --ds-bg-surface-info-above-pressed: #E8F2FC;
+
+  // Surface > Highlight
+  --ds-bg-surface-highlight: #F1F5FD;
+  --ds-bg-surface-highlight-above: #F6F9FE;
+  --ds-bg-surface-highlight-above-hovered: #EDF2FD;
+  --ds-bg-surface-highlight-above-pressed: #E8EFFC;
+
+  // Surface > Neutral
+  --ds-bg-surface-neutral: #FCFCFC;
+  --ds-bg-surface-neutral-above: #FAFAFA;
+  --ds-bg-surface-neutral-hovered: #F7F7F7;
+  --ds-bg-surface-neutral-pressed: #F5F5F5;
+
+  // Surface > System
+  --ds-bg-surface-system: #3D3D3D;
+  --ds-bg-surface-system-hovered: #333333;
+  --ds-bg-surface-system-pressed: #050505;
+
+
+  // ---------------------------------------------------------------------------
+  // TEXT
+  // ---------------------------------------------------------------------------
+  --ds-text: #696969;
+  --ds-text-above: #595959;
+  --ds-text-critical: #CE1735;
+  --ds-text-warning: #986611;
+  --ds-text-success: #2F7E2F;
+  --ds-text-info: #125CA5;
+  --ds-text-highlight: #0033C6;
+  --ds-text-on-interactive: #FCFCFC;
+  --ds-text-on-primary: #FCFCFC;
+  --ds-text-on-secondary: #0033C6;
+  --ds-text-on-critical: #FCFCFC;
+  --ds-text-on-conversion: #FCFCFC;
+  --ds-text-on-surface-system: #FCFCFC;
+  --ds-text-on-readonly: #595959;
+
+
+  // ---------------------------------------------------------------------------
+  // ICON
+  // ---------------------------------------------------------------------------
+  --ds-icon: #696969;
+  --ds-icon-above: #595959;
+  --ds-icon-hovered: #595959;
+  --ds-icon-pressed: #3D3D3D;
+  --ds-icon-critical: #CE1735;
+  --ds-icon-warning: #986611;
+  --ds-icon-success: #2F7E2F;
+  --ds-icon-info: #125CA5;
+  --ds-icon-highlight: #0033C6;
+  --ds-icon-on-interactive: #FCFCFC;
+  --ds-icon-on-interactive-primary: #696969;
+  --ds-icon-on-interactive-primary-hovered: #FCFCFC;
+  --ds-icon-on-primary: #FCFCFC;
+  --ds-icon-on-secondary: #0033C6;
+  --ds-icon-on-critical: #FCFCFC;
+  --ds-icon-on-conversion: #FCFCFC;
+  --ds-icon-on-surface-system: #FCFCFC;
+  --ds-icon-on-surface-system-hovered: #D9D9D9;
+  --ds-icon-on-surface-system-pressed: #CCCCCC;
+  --ds-icon-on-readonly: #595959;
+
+
+  // ---------------------------------------------------------------------------
+  // SHADOW
+  // ---------------------------------------------------------------------------
+  --ds-shadow: #D9D9D9;
+  --ds-shadow-hovered: #CCCCCC;
+
+
+  // ---------------------------------------------------------------------------
+  // INTERACTIVE
+  // ---------------------------------------------------------------------------
+  --ds-interactive: #0033C6;
+  --ds-interactive-hovered: #0F3889;
+  --ds-interactive-pressed: #0A255B;
+  --ds-interactive-visited: #0A255B;
+  --ds-interactive-primary: #0033C6;
+  --ds-interactive-primary-hovered: #0F3889;
+  --ds-interactive-primary-pressed: #0A255B;
+  --ds-interactive-primary-visited: #0A255B;
+
+
+  // ---------------------------------------------------------------------------
+  // BORDER
+  // ---------------------------------------------------------------------------
+  --ds-border: #CCCCCC;
+  --ds-border-hovered: #9E9E9E;
+  --ds-border-secondary: #696969;
+  --ds-border-secondary-hovered: #595959;
+  --ds-border-critical: #EC5A72;
+  --ds-border-critical-above: #F5A3B1;
+  --ds-border-success: #79CD79;
+  --ds-border-success-above: #B5E3B5;
+  --ds-border-info: #5AA3EC;
+  --ds-border-info-above: #A3CCF5;
+  --ds-border-warning: #EDB759;
+  --ds-border-warning-above: #F5D7A3;
+  --ds-border-highlight: #0033C6;
+  --ds-border-highlight-above: #A3BEF5;
+  --ds-border-on-secondary: #0033C6;
+  --ds-border-shadow: #CCCCCC;
+  --ds-border-on-surface-system: #FCFCFC;
+  --ds-border-on-surface-system-hovered: #D9D9D9;
+  --ds-border-on-surface-system-pressed: #CCCCCC;
+
+
+  // ---------------------------------------------------------------------------
+  // FOCUS
+  // ---------------------------------------------------------------------------
+  --ds-focus: #725AED;
+
+
+  // ---------------------------------------------------------------------------
+  // ACTION
+  // ---------------------------------------------------------------------------
+  --ds-action-primary: #0033C6;
+  --ds-action-primary-hovered: #0F3889;
+  --ds-action-primary-pressed: #0A255B;
+  --ds-action-primary-readonly: #595959;
+
+  --ds-action-secondary: #F6F9FE;
+  --ds-action-secondary-hovered: #D1DFFA;
+  --ds-action-secondary-pressed: #A3BEF5;
+
+  --ds-action-critical: #CE1735;
+  --ds-action-critical-hovered: #A5122A;
+  --ds-action-critical-pressed: #6E0C1C;
+
+  --ds-action-conversion: #1E730D;
+  --ds-action-conversion-hovered: #185C0A;
+  --ds-action-conversion-pressed: #0C2E05;
+
+
+  // ---------------------------------------------------------------------------
+  // DECORATIVE — Semantic
+  // ---------------------------------------------------------------------------
+  --ds-decorative-discount-surface: #2C5C0A;
+  --ds-decorative-discount-icon: #C5F5A3;
+  --ds-decorative-discount-text: #F9FEF6;
+
+  --ds-decorative-offer-surface: #ECF8EC;
+  --ds-decorative-offer-icon: #2C5C0A;
+  --ds-decorative-offer-text: #2C5C0A;
+
+  --ds-decorative-favorite-surface: #FDF1F1;
+  --ds-decorative-favorite-icon: #CA1717;
+
+  --ds-decorative-primary-surface: #0033C6;
+  --ds-decorative-primary-icon: #A3BEF5;
+  --ds-decorative-primary-text: #F6F9FE;
+
+  --ds-decorative-secondary-surface: #CA1717;
+  --ds-decorative-secondary-icon: #FDF1F1;
+  --ds-decorative-secondary-text: #FEF6F6;
+
+
+  // ---------------------------------------------------------------------------
+  // DECORATIVE — Numbered palette (1–12)
+  // ---------------------------------------------------------------------------
+  --ds-decorative-1-surface: #CF175A;
+  --ds-decorative-1-icon: #F5A3C1;
+  --ds-decorative-1-text: #FEF6F9;
+
+  --ds-decorative-2-surface: #CE1735;
+  --ds-decorative-2-icon: #F5A3B1;
+  --ds-decorative-2-text: #FEF6F7;
+
+  --ds-decorative-3-surface: #C55016;
+  --ds-decorative-3-icon: #F5BEA3;
+  --ds-decorative-3-text: #FEF9F6;
+
+  --ds-decorative-4-surface: #CE7317;
+  --ds-decorative-4-icon: #F5CCA3;
+  --ds-decorative-4-text: #FEFAF6;
+
+  --ds-decorative-5-surface: #3E800E;
+  --ds-decorative-5-icon: #C5F5A3;
+  --ds-decorative-5-text: #F9FEF6;
+
+  --ds-decorative-6-surface: #128EA5;
+  --ds-decorative-6-icon: #A3E8F5;
+  --ds-decorative-6-text: #F6FDFE;
+
+  --ds-decorative-7-surface: #1773CE;
+  --ds-decorative-7-icon: #A3CCF5;
+  --ds-decorative-7-text: #F6FAFE;
+
+  --ds-decorative-8-surface: #CE17CE;
+  --ds-decorative-8-icon: #F5A3F5;
+  --ds-decorative-8-text: #FEF6FE;
+
+  --ds-decorative-9-surface: #6C677E;
+  --ds-decorative-9-icon: #C9C7D1;
+  --ds-decorative-9-text: #FAF9FA;
+
+  --ds-decorative-10-surface: #CE2E17;
+  --ds-decorative-10-icon: #F5ADA3;
+  --ds-decorative-10-text: #FEF7F6;
+
+  --ds-decorative-11-surface: #FCF2E8;
+  --ds-decorative-11-icon: #CE7317;
+  --ds-decorative-11-text: #6E3D0C;
+
+  --ds-decorative-12-surface: #7317CE;
+  --ds-decorative-12-icon: #CCA3F5;
+  --ds-decorative-12-text: #FAF6FE;
+
+
+  // ---------------------------------------------------------------------------
+  // ILLUSTRATIONS
+  // ---------------------------------------------------------------------------
+  --ds-illustration-primary: #0A255B;
+  --ds-illustration-secondary: #CA1717;
+  --ds-illustration-support-dark: #A3BEF5;
+  --ds-illustration-support-light: #D1DFFA;
+
+
+  // ---------------------------------------------------------------------------
+  // COMPONENT-SPECIFIC — Header
+  // ---------------------------------------------------------------------------
+  --ds-header-bg: #F7F7F7;
+  --ds-header-surface: #EBEBEB;
+  --ds-header-text: #0033C6;
+  --ds-header-icon: #0033C6;
+  --ds-header-decorative-line: #E71A3B;
+  --ds-header-badge-bg: #CA1717;
+  --ds-header-badge-text: #FCFCFC;
+
+  // COMPONENT-SPECIFIC — Search
+  --ds-search-bg: #FCFCFC;
+  --ds-search-text: #696969;
+  --ds-search-placeholder: #696969;
+  --ds-search-icon: #696969;
+
+  // COMPONENT-SPECIFIC — Modal
+  --ds-modal-header-bg: #0033C6;
+  --ds-modal-header-text: #FCFCFC;
+
+  // COMPONENT-SPECIFIC — Drawer
+  --ds-drawer-header-bg: #0033C6;
+  --ds-drawer-header-text: #FCFCFC;
+
+  // COMPONENT-SPECIFIC — Product Card
+  --ds-product-card-text-highlight: #0033C6;
+}
