@@ -85,22 +85,15 @@ $cb-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s;
 }
 
-.combo-chevron::before {
-  content: '';
-  display: block;
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(45deg) translateY(-3px);
-  transition: transform 0.2s;
+.combo-chevron svg {
+  transition: transform 0.2s ease;
+  pointer-events: none;
 }
 
-.combo-chevron--open::before {
-  transform: rotate(225deg) translateY(-3px);
+.combo-chevron--open svg {
+  transform: rotate(180deg);
 }
 
 .combo-dropdown {
