@@ -11,6 +11,11 @@ const meta: Meta<DatePickerComponent> = {
   decorators: [
     moduleMetadata({ imports: [DatePickerComponent] })
   ],
+  parameters: {
+    docs: {
+      story: { height: '380px' }
+    }
+  },
   argTypes: {
     label: { control: 'text', description: 'Label do campo' },
     placeholder: { control: 'text', description: 'Placeholder quando vazio' },
@@ -47,20 +52,22 @@ export const Default: Story = {
     return {
       props: { ...args, selected, onDateChange: (d: string) => selected.set(d) },
       template: `
-        <cb-date-picker
-          [label]="label"
-          [placeholder]="placeholder"
-          [helperText]="helperText"
-          [errorMessage]="errorMessage"
-          [isRequired]="isRequired"
-          [isDisabled]="isDisabled"
-          [isInvalid]="isInvalid"
-          [isReadOnly]="isReadOnly"
-          [minDate]="minDate"
-          [maxDate]="maxDate"
-          [value]="selected()"
-          (dateChange)="onDateChange($event)"
-        />
+        <div style="padding-bottom: 320px">
+          <cb-date-picker
+            [label]="label"
+            [placeholder]="placeholder"
+            [helperText]="helperText"
+            [errorMessage]="errorMessage"
+            [isRequired]="isRequired"
+            [isDisabled]="isDisabled"
+            [isInvalid]="isInvalid"
+            [isReadOnly]="isReadOnly"
+            [minDate]="minDate"
+            [maxDate]="maxDate"
+            [value]="selected()"
+            (dateChange)="onDateChange($event)"
+          />
+        </div>
       `
     };
   }
@@ -76,13 +83,15 @@ export const WithHelperText: Story = {
     return {
       props: { ...args, selected, onDateChange: (d: string) => selected.set(d) },
       template: `
-        <cb-date-picker
-          [label]="label"
-          [placeholder]="placeholder"
-          [helperText]="helperText"
-          [value]="selected()"
-          (dateChange)="onDateChange($event)"
-        />
+        <div style="padding-bottom: 320px">
+          <cb-date-picker
+            [label]="label"
+            [placeholder]="placeholder"
+            [helperText]="helperText"
+            [value]="selected()"
+            (dateChange)="onDateChange($event)"
+          />
+        </div>
       `
     };
   }
@@ -99,14 +108,16 @@ export const Required: Story = {
     return {
       props: { ...args, selected, onDateChange: (d: string) => selected.set(d) },
       template: `
-        <cb-date-picker
-          [label]="label"
-          [placeholder]="placeholder"
-          [helperText]="helperText"
-          [isRequired]="isRequired"
-          [value]="selected()"
-          (dateChange)="onDateChange($event)"
-        />
+        <div style="padding-bottom: 320px">
+          <cb-date-picker
+            [label]="label"
+            [placeholder]="placeholder"
+            [helperText]="helperText"
+            [isRequired]="isRequired"
+            [value]="selected()"
+            (dateChange)="onDateChange($event)"
+          />
+        </div>
       `
     };
   }
@@ -124,15 +135,17 @@ export const Invalid: Story = {
     return {
       props: { ...args, selected, onDateChange: (d: string) => selected.set(d) },
       template: `
-        <cb-date-picker
-          [label]="label"
-          [placeholder]="placeholder"
-          [isRequired]="isRequired"
-          [isInvalid]="isInvalid"
-          [errorMessage]="errorMessage"
-          [value]="selected()"
-          (dateChange)="onDateChange($event)"
-        />
+        <div style="padding-bottom: 320px">
+          <cb-date-picker
+            [label]="label"
+            [placeholder]="placeholder"
+            [isRequired]="isRequired"
+            [isInvalid]="isInvalid"
+            [errorMessage]="errorMessage"
+            [value]="selected()"
+            (dateChange)="onDateChange($event)"
+          />
+        </div>
       `
     };
   }
@@ -185,15 +198,17 @@ export const WithMinMaxDate: Story = {
     return {
       props: { ...args, selected, onDateChange: (d: string) => selected.set(d) },
       template: `
-        <cb-date-picker
-          [label]="label"
-          [placeholder]="placeholder"
-          [helperText]="helperText"
-          [minDate]="minDate"
-          [maxDate]="maxDate"
-          [value]="selected()"
-          (dateChange)="onDateChange($event)"
-        />
+        <div style="padding-bottom: 320px">
+          <cb-date-picker
+            [label]="label"
+            [placeholder]="placeholder"
+            [helperText]="helperText"
+            [minDate]="minDate"
+            [maxDate]="maxDate"
+            [value]="selected()"
+            (dateChange)="onDateChange($event)"
+          />
+        </div>
       `
     };
   }
@@ -209,13 +224,15 @@ export const PreSelected: Story = {
     return {
       props: { ...args, selected, onDateChange: (d: string) => selected.set(d) },
       template: `
-        <cb-date-picker
-          [label]="label"
-          [placeholder]="placeholder"
-          [helperText]="helperText"
-          [value]="selected()"
-          (dateChange)="onDateChange($event)"
-        />
+        <div style="padding-bottom: 320px">
+          <cb-date-picker
+            [label]="label"
+            [placeholder]="placeholder"
+            [helperText]="helperText"
+            [value]="selected()"
+            (dateChange)="onDateChange($event)"
+          />
+        </div>
       `
     };
   }
