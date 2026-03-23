@@ -84,7 +84,9 @@
 // ---------------------------------------------------------------------------
 
 .date-picker__calendar {
-  position: fixed;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
   z-index: 9999;
   background: var(--ds-bg-main, #FCFCFC);
   border: 1px solid var(--ds-border, #CCCCCC);
