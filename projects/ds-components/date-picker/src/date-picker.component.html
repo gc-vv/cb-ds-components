@@ -88,9 +88,9 @@
     </div>
 
     <!-- Days grid -->
-    <div class="date-picker__days">
+    <div class="date-picker__days" (mouseleave)="clearHover()">
       <button
-        *ngFor="let day of calendarDays()"
+        *ngFor="let day of calendarDays(); trackBy: trackByDate"
         type="button"
         [ngClass]="[
           'date-picker__day',
@@ -106,7 +106,6 @@
         [attr.aria-pressed]="day.isSelected || day.isRangeStart || day.isRangeEnd"
         (click)="selectDay(day)"
         (mouseenter)="hoverDay(day.date)"
-        (mouseleave)="clearHover()"
       >
         {{ day.date.getDate() }}
       </button>

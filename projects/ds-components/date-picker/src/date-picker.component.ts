@@ -210,6 +210,10 @@ export class DatePickerComponent implements ControlValueAccessor {
     this.hoveredDate.set(null);
   }
 
+  protected trackByDate(_index: number, day: CalendarDay): number {
+    return day.date.getTime();
+  }
+
   private selectRangeDay(date: Date): void {
     const start = this.rangeStart();
     const end = this.rangeEnd();
