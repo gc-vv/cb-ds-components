@@ -87,7 +87,7 @@
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
-  z-index: var(--ds-z-dropdown, 200);
+  z-index: 9999;
   background: var(--ds-bg-main, #FCFCFC);
   border: 1px solid var(--ds-border, #CCCCCC);
   border-radius: var(--ds-radius-100, 8px);
