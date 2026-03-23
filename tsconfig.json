@@ -120,6 +120,10 @@
         "./projects/ds-components/toggle/src/public-api.ts",
         "./dist/ds-components/toggle"
       ],
+      "@cb/ds-components/date-picker": [
+        "./projects/ds-components/date-picker/src/public-api.ts",
+        "./dist/ds-components/date-picker"
+      ],
       "@cb/ds-components/form-field": [
         "./projects/ds-components/form-field/src/public-api.ts",
         "./dist/ds-components/form-field"
