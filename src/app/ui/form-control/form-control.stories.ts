@@ -1,6 +1,8 @@
+import { moduleMetadata } from '@storybook/angular';
 import type { Meta, StoryObj } from '@storybook/angular';
 
 import { FormControlComponent } from '@cb/ds-components/form-control';
+import { SelectComponent } from '@cb/ds-components/select';
 
 const meta: Meta<FormControlComponent> = {
   title: 'UI/FormControl',
@@ -281,8 +283,18 @@ export const WithSelect: Story = {
     isRequired: true,
     id: 'select-field'
   },
+  decorators: [
+    moduleMetadata({ imports: [SelectComponent] })
+  ],
   render: (args) => ({
-    props: args,
+    props: {
+      ...args,
+      selectOptions: [
+        { value: '1', label: 'Opção 1' },
+        { value: '2', label: 'Opção 2' },
+        { value: '3', label: 'Opção 3' }
+      ]
+    },
     template: `
       <cb-form-control
         [label]="label"
@@ -296,17 +308,15 @@ export const WithSelect: Story = {
         [id]="id"
         [className]="className"
       >
-        <select
+        <cb-select
           [id]="id"
-          [disabled]="isDisabled"
-          [attr.aria-required]="isRequired"
-          style="width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; font-family: inherit; background: white; cursor: pointer;"
-        >
-          <option value="">Selecione uma opção</option>
-          <option value="1">Opção 1</option>
-          <option value="2">Opção 2</option>
-          <option value="3">Opção 3</option>
-        </select>
+          [options]="selectOptions"
+          placeholder="Selecione uma opção"
+          [isRequired]="isRequired"
+          [isDisabled]="isDisabled"
+          [isInvalid]="isInvalid"
+          [isReadOnly]="isReadOnly"
+        ></cb-select>
       </cb-form-control>
     `
   })
