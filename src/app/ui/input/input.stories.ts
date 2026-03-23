@@ -1,3 +1,4 @@
+import { moduleMetadata } from '@storybook/angular';
 import type { Meta, StoryObj } from '@storybook/angular';
 
 import { InputComponent } from '@cb/ds-components/input';
@@ -28,7 +29,10 @@ const meta: Meta<InputComponent> = {
     isReadOnly: false,
     type: 'email',
     elementDirection: 'right'
-  }
+  },
+  decorators: [
+    moduleMetadata({ imports: [FormControlComponent] })
+  ]
 };
 
 export default meta;
@@ -39,11 +43,12 @@ export const WithHelperText: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <cb-form-control
-        label="E-mail"
-        helperText="Digite seu melhor e-mail"
-        id="email-input"
-      >
+      <ng-template #emailIcon>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
+        </svg>
+      </ng-template>
+      <cb-form-control label="E-mail" helperText="Digite seu melhor e-mail" id="email-input">
         <cb-input
           [id]="'email-input'"
           [placeholder]="placeholder"
@@ -51,10 +56,12 @@ export const WithHelperText: Story = {
           [isInvalid]="isInvalid"
           [isReadOnly]="isReadOnly"
           [type]="type"
+          [elementDirection]="'right'"
+          [element]="emailIcon"
         />
       </cb-form-control>
     `,
-    imports: [InputComponent, FormControlComponent]
+    imports: [InputComponent]
   })
 };
 
@@ -62,10 +69,7 @@ export const WithPlaceholder: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <cb-form-control
-        label="E-mail"
-        id="email-placeholder"
-      >
+      <cb-form-control label="E-mail" id="email-placeholder">
         <cb-input
           [id]="'email-placeholder'"
           [placeholder]="'exemplo@exemplo.com'"
@@ -73,7 +77,7 @@ export const WithPlaceholder: Story = {
         />
       </cb-form-control>
     `,
-    imports: [InputComponent, FormControlComponent]
+    imports: [InputComponent]
   })
 };
 
@@ -81,12 +85,7 @@ export const Required: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <cb-form-control
-        label="E-mail"
-        [isRequired]="true"
-        helperText="Digite seu melhor e-mail"
-        id="email-required"
-      >
+      <cb-form-control label="E-mail" [isRequired]="true" helperText="Digite seu melhor e-mail" id="email-required">
         <cb-input
           [id]="'email-required'"
           [placeholder]="''"
@@ -94,7 +93,7 @@ export const Required: Story = {
         />
       </cb-form-control>
     `,
-    imports: [InputComponent, FormControlComponent]
+    imports: [InputComponent]
   })
 };
 
@@ -102,13 +101,7 @@ export const Invalid: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <cb-form-control
-        label="E-mail"
-        [isRequired]="true"
-        [isInvalid]="true"
-        errorMessage="Campo obrigatório"
-        id="email-invalid"
-      >
+      <cb-form-control label="E-mail" [isRequired]="true" [isInvalid]="true" errorMessage="Campo obrigatório" id="email-invalid">
         <cb-input
           [id]="'email-invalid'"
           [isInvalid]="true"
@@ -117,7 +110,7 @@ export const Invalid: Story = {
         />
       </cb-form-control>
     `,
-    imports: [InputComponent, FormControlComponent]
+    imports: [InputComponent]
   })
 };
 
@@ -125,26 +118,22 @@ export const WithElementLeft: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <cb-form-control
-        label="E-mail"
-        id="email-icon-left"
-      >
+      <ng-template #emailIcon>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
+        </svg>
+      </ng-template>
+      <cb-form-control label="E-mail" id="email-icon-left">
         <cb-input
           [id]="'email-icon-left'"
-          [placeholder]="'Digite seu Email'"
+          [placeholder]="'exemplo@exemplo.com'"
           [type]="'email'"
           [elementDirection]="'left'"
-        >
-          <ng-template #element>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="4" width="16" height="12" rx="2"/>
-              <path d="M2 6l8 5 8-5"/>
-            </svg>
-          </ng-template>
-        </cb-input>
+          [element]="emailIcon"
+        />
       </cb-form-control>
     `,
-    imports: [InputComponent, FormControlComponent]
+    imports: [InputComponent]
   })
 };
 
@@ -152,26 +141,22 @@ export const WithElementRight: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <cb-form-control
-        label="E-mail"
-        id="email-icon-right"
-      >
+      <ng-template #emailIcon>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
+        </svg>
+      </ng-template>
+      <cb-form-control label="E-mail" id="email-icon-right">
         <cb-input
           [id]="'email-icon-right'"
-          [placeholder]="'Digite seu Email'"
+          [placeholder]="'exemplo@exemplo.com'"
           [type]="'email'"
           [elementDirection]="'right'"
-        >
-          <ng-template #element>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="4" width="16" height="12" rx="2"/>
-              <path d="M2 6l8 5 8-5"/>
-            </svg>
-          </ng-template>
-        </cb-input>
+          [element]="emailIcon"
+        />
       </cb-form-control>
     `,
-    imports: [InputComponent, FormControlComponent]
+    imports: [InputComponent]
   })
 };
 
@@ -179,28 +164,23 @@ export const Disabled: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <cb-form-control
-        label="E-mail"
-        [isDisabled]="true"
-        id="email-disabled"
-      >
+      <ng-template #emailIcon>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
+        </svg>
+      </ng-template>
+      <cb-form-control label="E-mail" [isDisabled]="true" id="email-disabled">
         <cb-input
           [id]="'email-disabled'"
-          [placeholder]="'Digite seu Email'"
+          [placeholder]="'exemplo@exemplo.com'"
           [disabled]="true"
           [type]="'email'"
           [elementDirection]="'right'"
-        >
-          <ng-template #element>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="4" width="16" height="12" rx="2"/>
-              <path d="M2 6l8 5 8-5"/>
-            </svg>
-          </ng-template>
-        </cb-input>
+          [element]="emailIcon"
+        />
       </cb-form-control>
     `,
-    imports: [InputComponent, FormControlComponent]
+    imports: [InputComponent]
   })
 };
 
@@ -208,28 +188,22 @@ export const ReadOnly: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <cb-form-control
-        label="E-mail"
-        [isReadOnly]="true"
-        helperText="Este campo é somente leitura"
-        id="email-readonly"
-      >
+      <ng-template #emailIcon>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
+        </svg>
+      </ng-template>
+      <cb-form-control label="E-mail" [isReadOnly]="true" helperText="Este campo é somente leitura" id="email-readonly">
         <cb-input
           [id]="'email-readonly'"
           [placeholder]="'baianinho@gcb.com'"
           [isReadOnly]="true"
           [type]="'email'"
           [elementDirection]="'right'"
-        >
-          <ng-template #element>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="4" width="16" height="12" rx="2"/>
-              <path d="M2 6l8 5 8-5"/>
-            </svg>
-          </ng-template>
-        </cb-input>
+          [element]="emailIcon"
+        />
       </cb-form-control>
     `,
-    imports: [InputComponent, FormControlComponent]
+    imports: [InputComponent]
   })
 };
