@@ -4,11 +4,24 @@
   font-family: var(--ds-font-family-body, 'Nunito', sans-serif);
 }
 
+:host:has(.date-picker--fit-content) {
+  width: fit-content;
+}
+
 .date-picker {
   display: flex;
   flex-direction: column;
   gap: var(--ds-spacing-75, 6px);
   position: relative;
+}
+
+.date-picker--fit-content {
+  width: fit-content;
+
+  .date-picker__field {
+    width: fit-content;
+    min-width: 200px;
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -201,6 +214,38 @@
 .date-picker__day--disabled {
   opacity: 0.38;
   cursor: not-allowed;
+}
+
+.date-picker__day--range-start {
+  background: var(--ds-interactive, #0033C6);
+  color: #FFFFFF;
+  font-weight: var(--ds-font-weight-semibold, 700);
+  border-radius: var(--ds-radius-50, 4px) 0 0 var(--ds-radius-50, 4px);
+}
+
+.date-picker__day--range-start:hover:not(:disabled) {
+  background: var(--ds-interactive-hovered, #0026A0);
+}
+
+.date-picker__day--range-end {
+  background: var(--ds-interactive, #0033C6);
+  color: #FFFFFF;
+  font-weight: var(--ds-font-weight-semibold, 700);
+  border-radius: 0 var(--ds-radius-50, 4px) var(--ds-radius-50, 4px) 0;
+}
+
+.date-picker__day--range-end:hover:not(:disabled) {
+  background: var(--ds-interactive-hovered, #0026A0);
+}
+
+.date-picker__day--in-range {
+  background: rgba(0, 51, 198, 0.10);
+  color: var(--ds-interactive, #0033C6);
+  border-radius: 0;
+}
+
+.date-picker__day--in-range:hover:not(:disabled) {
+  background: rgba(0, 51, 198, 0.18);
 }
 
 // ---------------------------------------------------------------------------

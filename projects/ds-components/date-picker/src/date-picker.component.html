@@ -1,6 +1,7 @@
 <div
   [ngClass]="[
     'date-picker',
+    !fullWidth() ? 'date-picker--fit-content' : '',
     isInvalid() ? 'date-picker--invalid' : '',
     isDisabled() ? 'date-picker--disabled' : '',
     isReadOnly() ? 'date-picker--readonly' : '',
@@ -93,14 +94,19 @@
         type="button"
         [ngClass]="[
           'date-picker__day',
-          day.isToday && !day.isSelected ? 'date-picker__day--today' : '',
+          day.isToday && !day.isSelected && !day.isRangeStart && !day.isRangeEnd ? 'date-picker__day--today' : '',
           day.isSelected ? 'date-picker__day--selected' : '',
+          day.isRangeStart ? 'date-picker__day--range-start' : '',
+          day.isRangeEnd ? 'date-picker__day--range-end' : '',
+          day.isInRange ? 'date-picker__day--in-range' : '',
           day.isOutside ? 'date-picker__day--outside' : '',
           day.isDisabled ? 'date-picker__day--disabled' : ''
         ]"
         [disabled]="day.isDisabled"
-        [attr.aria-pressed]="day.isSelected"
+        [attr.aria-pressed]="day.isSelected || day.isRangeStart || day.isRangeEnd"
         (click)="selectDay(day)"
+        (mouseenter)="hoverDay(day.date)"
+        (mouseleave)="clearHover()"
       >
         {{ day.date.getDate() }}
       </button>
