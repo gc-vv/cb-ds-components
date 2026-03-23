@@ -1,11 +1,18 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  DOCUMENT,
+  ElementRef,
+  HostListener,
+  OnDestroy,
+  Renderer2,
+  ViewChild,
   effect,
+  inject,
   input,
   output,
-  signal,
-  HostListener
+  signal
 } from '@angular/core';
 import { NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 
@@ -19,7 +26,7 @@ import type { DrawerPlacement, DrawerSize, DrawerOpenChangeEvent } from './drawe
   styleUrl: './drawer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DrawerComponent {
+export class DrawerComponent implements AfterViewInit, OnDestroy {
   readonly title = input<string>('');
 
   readonly placement = input<DrawerPlacement>('right');
@@ -30,7 +37,14 @@ export class DrawerComponent {
 
   readonly hasContentPadding = input<boolean>(true);
 
+  readonly overlay = input<boolean>(true);
+
   readonly className = input<string>('');
+
+  private readonly renderer = inject(Renderer2);
+  private readonly document = inject(DOCUMENT);
+
+  @ViewChild('drawerContainer') containerRef!: ElementRef<HTMLElement>;
 
   readonly onOpenChange = output<DrawerOpenChangeEvent>();
 
@@ -40,19 +54,32 @@ export class DrawerComponent {
     effect(() => {
       const openState = this.open();
       this.isOpen.set(openState);
-      
       if (openState) {
-        document.body.style.overflow = 'hidden';
+        this.renderer.setStyle(this.document.body, 'overflow', 'hidden');
       } else {
-        document.body.style.overflow = '';
+        this.renderer.removeStyle(this.document.body, 'overflow');
       }
     });
+  }
+
+  ngAfterViewInit(): void {
+    this.renderer.appendChild(this.document.body, this.containerRef.nativeElement);
+  }
+
+  ngOnDestroy(): void {
+    this.renderer.removeStyle(this.document.body, 'overflow');
+    if (this.containerRef?.nativeElement?.parentElement) {
+      this.renderer.removeChild(
+        this.containerRef.nativeElement.parentElement,
+        this.containerRef.nativeElement
+      );
+    }
   }
 
   protected close(): void {
     this.isOpen.set(false);
     this.onOpenChange.emit({ open: false });
-    document.body.style.overflow = '';
+    this.renderer.removeStyle(this.document.body, 'overflow');
   }
 
   protected handleOverlayClick(): void {

@@ -1,12 +1,14 @@
 <div
-  *ngIf="isOpen()"
-  [ngClass]="['drawer-container', className()]"
+  #drawerContainer
+  [ngClass]="['drawer-container', className(), isOpen() ? 'drawer-container--open' : '']"
 >
   <!-- Overlay -->
-  <div
-    class="drawer__overlay"
-    (click)="handleOverlayClick()"
-  ></div>
+  @if (overlay()) {
+    <div
+      class="drawer__overlay"
+      (click)="handleOverlayClick()"
+    ></div>
+  }
 
   <!-- Drawer Panel -->
   <div
