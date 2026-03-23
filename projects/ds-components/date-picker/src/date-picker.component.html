@@ -53,7 +53,15 @@
   </div>
 
   <!-- Calendar popup -->
-  <div *ngIf="isOpen()" class="date-picker__calendar" role="dialog" aria-label="Calendário">
+  <div
+    *ngIf="isOpen()"
+    class="date-picker__calendar"
+    role="dialog"
+    aria-label="Calendário"
+    [style.top.px]="calendarPos().top"
+    [style.left.px]="calendarPos().left"
+    [style.min-width.px]="calendarPos().width"
+  >
     <!-- Header -->
     <div class="date-picker__header">
       <button

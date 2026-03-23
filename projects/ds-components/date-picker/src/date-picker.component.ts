@@ -53,6 +53,7 @@ export class DatePickerComponent implements ControlValueAccessor {
   protected readonly isOpen = signal(false);
   protected readonly viewDate = signal(new Date());
   protected readonly selectedDate = signal<Date | null>(null);
+  protected readonly calendarPos = signal({ top: 0, left: 0, width: 0 });
 
   protected readonly WEEKDAYS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
   protected readonly MONTHS = [
@@ -137,6 +138,13 @@ export class DatePickerComponent implements ControlValueAccessor {
 
   protected toggleCalendar(): void {
     if (this.isDisabled() || this.isReadOnly()) return;
+    if (!this.isOpen()) {
+      const field = this.el.nativeElement.querySelector('.date-picker__field');
+      if (field) {
+        const rect = (field as HTMLElement).getBoundingClientRect();
+        this.calendarPos.set({ top: rect.bottom + 4, left: rect.left, width: rect.width });
+      }
+    }
     this.isOpen.update(v => !v);
   }
 
