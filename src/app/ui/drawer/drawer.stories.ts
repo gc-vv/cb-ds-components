@@ -1,3 +1,4 @@
+import { moduleMetadata } from '@storybook/angular';
 import type { Meta, StoryObj } from '@storybook/angular';
 import { signal } from '@angular/core';
 
@@ -8,6 +9,9 @@ const meta: Meta<DrawerComponent> = {
   title: 'UI/Drawer',
   component: DrawerComponent,
   tags: ['autodocs'],
+  decorators: [
+    moduleMetadata({ imports: [ButtonComponent] })
+  ],
   argTypes: {
     title: {
       control: 'text',
